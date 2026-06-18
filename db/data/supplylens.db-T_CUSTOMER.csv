@@ -1,0 +1,6 @@
+CUSTOMER_ID;CUSTOMER_NAME;CUSTOMER_TYPE;COUNTRY_CODE;REGION;ACTIVE_FLG
+CUST-001;AMD;OEM;USA;North America;true
+CUST-002;Qualcomm;OEM;USA;North America;true
+CUST-003;Bosch Mobility;Tier1;DEU;EMEA;true
+CUST-004;NVIDIA;OEM;USA;North America;true
+CUST-005;Hyperscaler A;Cloud Customer;USA;North America;true

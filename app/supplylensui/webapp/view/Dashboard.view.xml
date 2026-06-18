@@ -1,0 +1,271 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="slPage">
+
+        <VBox class="slShell">
+
+            <HBox class="slTopNav" alignItems="Center" justifyContent="SpaceBetween">
+
+                <VBox class="slLogoBox">
+                    <HBox>
+                        <Text text="Supply" class="slLogoDark"/>
+                        <Text text="Lens" class="slLogoTeal"/>
+                    </HBox>
+                    <Text text="Fabless OEM Manufacturing Visibility · Ariba SCC + SAP BTP" class="slLogoSub"/>
+                </VBox>
+
+                <HBox class="slNavItems" alignItems="Center">
+
+                    <Button
+                        text="# Chipset Risk"
+                        press=".onNavChipset"
+                        type="Transparent"
+                        class="slNavButton"/>
+
+                    <Button
+                        text="BOM Management"
+                        press=".onNavBom"
+                        type="Transparent"
+                        class="slNavButton"/>
+
+                    <Button
+                        text="@ Component Risk"
+                        type="Transparent"
+                        class="slNavButton"/>
+
+                    <Button
+                        text="* AI Recommendations"
+                        type="Transparent"
+                        class="slNavButton"/>
+
+                    <VBox class="slFeedBadge">
+                        <Text text="2" class="slFeedCount"/>
+                        <Text text="feeds stale" class="slFeedText"/>
+                    </VBox>
+
+                    <Button text="Live · Sync" class="slSyncBtn"/>
+
+                </HBox>
+
+            </HBox>
+
+            <!-- CHIPSET RISK PAGE -->
+            <VBox visible="{path:'dashboard>/selectedPage', formatter:'.isChipsetPage'}">
+
+                <HBox class="slPageHeader" justifyContent="SpaceBetween" alignItems="Center">
+                    <VBox>
+                        <Title text="Chipset Risk" level="H2" class="slPageTitle"/>
+                        <Text text="All BOM lines with trading partners. Click any row to drill in." class="slPageSub"/>
+                    </VBox>
+
+                    <SegmentedButton selectedKey="heatmap" class="slSegment">
+                        <items>
+                            <SegmentedButtonItem key="heatmap" text="Heatmap"/>
+                            <SegmentedButtonItem key="ai" text="AI Snapshot"/>
+                        </items>
+                    </SegmentedButton>
+                </HBox>
+
+                <HBox class="slFilterBar" alignItems="Center" justifyContent="SpaceBetween">
+
+                    <HBox alignItems="Center">
+                        <Text text="Quick filter:" class="slFilterLabel"/>
+                        <Button text="! Needs Attention" class="slPillBtn"/>
+                        <Button text="* My Watchlist" class="slPillBtn"/>
+                        <Button text="! Single-Source" class="slPillBtn"/>
+                    </HBox>
+
+                    <HBox alignItems="Center">
+                        <Text text="Sort:" class="slFilterLabel"/>
+                        <Select selectedKey="risk" width="15rem">
+                            <items>
+                                <core:Item key="risk" text="Risk Score (high first)"/>
+                                <core:Item key="revenue" text="Revenue at Risk"/>
+                                <core:Item key="gap" text="Supply Gap"/>
+                                <core:Item key="name" text="Name A-Z"/>
+                            </items>
+                        </Select>
+                        <Button text="Filters &gt;" class="slPillBtn"/>
+                    </HBox>
+
+                </HBox>
+
+                <HBox class="slKpiStrip">
+
+                    <VBox class="slKpiCard">
+                        <Text text="Portfolio Risk" class="slKpiLabel"/>
+                        <Text text="{dashboard>/kpis/portfolioRisk}" class="slKpiValue slRiskAmber"/>
+                        <Text text="At Risk" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Critical Chipsets" class="slKpiLabel"/>
+                        <Text text="{dashboard>/kpis/criticalChipsets}" class="slKpiValue slRiskGreen"/>
+                        <Text text="score &gt;= 75" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Revenue at Risk" class="slKpiLabel"/>
+                        <Text text="{dashboard>/kpis/revenueAtRisk}" class="slKpiValue slRiskRed"/>
+                        <Text text="estimated exposure" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Showing" class="slKpiLabel"/>
+                        <Text text="{dashboard>/kpis/showing}" class="slKpiValue"/>
+                        <Text text="chipsets" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Watchlist" class="slKpiLabel"/>
+                        <Text text="{dashboard>/kpis/watchlist}" class="slKpiValue"/>
+                        <Text text="pinned chipsets" class="slKpiSub"/>
+                    </VBox>
+
+                </HBox>
+
+                <VBox class="slHeatmapCard">
+
+                    <HBox class="slHeatmapHeader">
+                        <VBox class="slHCol slHChipset">
+                            <Text text="Chipset"/>
+                        </VBox>
+
+                        <VBox class="slHCol slHFoundry">
+                            <Text text="FOUNDRY LINES"/>
+                        </VBox>
+
+                        <VBox class="slHCol slHSubstrate">
+                            <Text text="SUBSTRATE LINES"/>
+                        </VBox>
+
+                        <VBox class="slHCol slHComposite">
+                            <Text text="COMPOSITE"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox class="slEmptyBox">
+                        <Text text="Heatmap rows will be added in the next step."/>
+                    </VBox>
+
+                </VBox>
+
+            </VBox>
+
+            <!-- BOM MANAGEMENT PAGE -->
+            <VBox visible="{path:'dashboard>/selectedPage', formatter:'.isBomPage'}" class="slBomPage">
+
+                <VBox class="slBomHeader">
+                    <Title text="BOM Management" level="H2" class="slPageTitle"/>
+                    <Text text="Upload chipset BOM or pull from SAP S/4HANA. Multiple BOM lines per chipset fully supported" class="slPageSub"/>
+                </VBox>
+
+                <HBox class="slBomTabs">
+                    <Button text="Browse BOM" type="Emphasized"/>
+                    <Button text="Upload CSV/Excel"/>
+                    <Button text="Pull from S/4HANA"/>
+                </HBox>
+
+                <VBox class="slBomCard">
+
+                    <HBox alignItems="Center" justifyContent="SpaceBetween" class="slBomCardHeader">
+
+                        <HBox alignItems="Center">
+                            <Text text="72" class="slBomScore"/>
+
+                            <VBox>
+                                <Title text="Aurora A1 SoC" level="H3"/>
+                                <Text text="Edge AI Accelerator · BC-A1 · 3 lines · 3 suppliers"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox>
+                            <ObjectStatus text="Active in Ariba SCC" state="Information"/>
+                            <ObjectStatus text="BTP Linked" state="Success" class="slMarginLeft"/>
+                        </HBox>
+
+                    </HBox>
+
+                    <Table inset="false" class="slBomTable">
+                        <columns>
+                            <Column><Text text="Line"/></Column>
+                            <Column><Text text="Material ID"/></Column>
+                            <Column><Text text="Description"/></Column>
+                            <Column><Text text="Tier"/></Column>
+                            <Column><Text text="Node"/></Column>
+                            <Column><Text text="Volume %"/></Column>
+                            <Column><Text text="Supplier"/></Column>
+                            <Column><Text text="Plant"/></Column>
+                            <Column><Text text="Country"/></Column>
+                            <Column><Text text="Score"/></Column>
+                            <Column><Text text="Status"/></Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="10"/>
+                                    <Text text="BC-DIE-001"/>
+                                    <Text text="7nm Compute Die"/>
+                                    <Text text="N7"/>
+                                    <Text text="N7"/>
+                                    <Text text="100%"/>
+                                    <Text text="TSMC Fab-18"/>
+                                    <Text text="TSMC Hsinchu"/>
+                                    <Text text="Taiwan"/>
+                                    <Text text="72"/>
+                                    <ObjectStatus text="At Risk" state="Warning"/>
+                                </cells>
+                            </ColumnListItem>
+
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="20"/>
+                                    <Text text="BC-INT-001"/>
+                                    <Text text="CoWoS Silicon Interposer"/>
+                                    <Text text="CoWoS-S"/>
+                                    <Text text="CoWoS-S"/>
+                                    <Text text="100%"/>
+                                    <Text text="TSMC CoWoS"/>
+                                    <Text text="TSMC Taichung"/>
+                                    <Text text="Taiwan"/>
+                                    <Text text="48"/>
+                                    <ObjectStatus text="Watch" state="Warning"/>
+                                </cells>
+                            </ColumnListItem>
+
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="30"/>
+                                    <Text text="BC-SUB-042"/>
+                                    <Text text="8L ABF Organic Substrate"/>
+                                    <Text text="8L ABF"/>
+                                    <Text text="8L ABF"/>
+                                    <Text text="100%"/>
+                                    <Text text="Unimicron SZ"/>
+                                    <Text text="Unimicron Shenzhen"/>
+                                    <Text text="China"/>
+                                    <Text text="64"/>
+                                    <ObjectStatus text="At Risk" state="Warning"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Text
+                        text="3 BOM lines · 3 suppliers · 27 Ariba SCC subscriptions auto-generated · Grain: Material × Supplier · Volume split preserved"
+                        class="slBomFooter"/>
+
+                </VBox>
+
+            </VBox>
+
+        </VBox>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,167 @@
+.landingPage {
+    background: #10182f !important;
+}
+
+.landingPage .sapMPageEnableScrolling {
+    background: linear-gradient(135deg, #15172f 0%, #0b263b 100%) !important;
+}
+
+.topHeader {
+    background: #ffffff;
+    height: 7rem;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.headerInner {
+    width: 100%;
+}
+
+.logoWhite,
+.logoTeal {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.logoWhite {
+    color: #111827;
+}
+
+.logoTeal {
+    color: #14b8b0;
+}
+
+.byText {
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.headerSub {
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.sourceBox {
+    gap: 0.75rem;
+}
+
+.sourceCard {
+    width: 7.2rem;
+    height: 3.2rem;
+    border: 1px solid #d9dee7;
+    border-radius: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+}
+
+.sourceTitle {
+    color: #0e9ea7;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.sourceSub {
+    color: #6b7280;
+    font-size: 0.65rem;
+}
+
+.landingHero {
+    min-height: calc(100vh - 7rem);
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    box-sizing: border-box;
+}
+
+.topBadge {
+    color: #16c7bd;
+    background: rgba(20, 184, 176, 0.12);
+    border: 1px solid rgba(20, 184, 176, 0.35);
+    border-radius: 2rem;
+    padding: 0.7rem 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.18rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.mainTitleWhite,
+.mainTitleTeal {
+    font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.mainTitleWhite {
+    color: #ffffff;
+}
+
+.mainTitleTeal {
+    color: #17b8ae;
+}
+
+.subTitle {
+    color: #d1d5db;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.description {
+    color: #9ca3af;
+    font-size: 1rem;
+    max-width: 42rem;
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+}
+
+.kpiBox {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+}
+
+.kpiItem {
+    width: 8rem;
+    height: 5rem;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.kpiItem:last-child {
+    border-right: none;
+}
+
+.kpiValue {
+    color: #16c7bd;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.kpiLabel {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+}
+
+.openDashboardBtn {
+    margin-top: 2.5rem;
+    width: 13rem;
+    height: 3.2rem;
+    background: #16b8b0 !important;
+    border-radius: 0.7rem !important;
+}
+
+.openDashboardBtn .sapMBtnInner {
+    background: #16b8b0 !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 800 !important;
+    border-radius: 0.7rem !important;
+}

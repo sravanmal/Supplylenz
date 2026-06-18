@@ -1,0 +1,284 @@
+.slPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.slShell {
+    width: 100%;
+}
+
+/* TOP NAV */
+.slTopNav {
+    height: 5.5rem;
+    padding: 0 2rem;
+    background: #ffffff;
+    border-bottom: 2px solid #14b8b0;
+    box-sizing: border-box;
+}
+
+.slLogoBox {
+    border-left: 4px solid #14b8b0;
+    padding-left: 0.8rem;
+}
+
+.slLogoDark,
+.slLogoTeal {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.slLogoDark {
+    color: #111827;
+}
+
+.slLogoTeal {
+    color: #0e9ea7;
+}
+
+.slLogoSub {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.slNavItems {
+    gap: 1rem;
+}
+
+.slNavButton .sapMBtnInner {
+    border: none !important;
+    background: transparent !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    font-size: 0.95rem;
+}
+
+.slNavButton:hover .sapMBtnInner {
+    color: #0e9ea7 !important;
+}
+
+.slFeedBadge {
+    background: #fff1f2;
+    border-radius: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    align-items: center;
+}
+
+.slFeedCount,
+.slFeedText {
+    color: #e11d48;
+    font-weight: 800;
+    font-size: 0.75rem;
+}
+
+.slSyncBtn .sapMBtnInner {
+    background: #e6fffb !important;
+    border: 1px solid #99f6e4 !important;
+    color: #0f766e !important;
+    font-weight: 800;
+    border-radius: 0.7rem;
+}
+
+/* PAGE HEADER */
+.slPageHeader {
+    padding: 1.5rem 2rem 1rem 2rem;
+}
+
+.slPageTitle {
+    border-left: 4px solid #14b8b0;
+    padding-left: 0.7rem;
+    font-weight: 900;
+}
+
+.slPageSub {
+    color: #64748b;
+    margin-left: 1rem;
+}
+
+.slSegment .sapMSegBBtn.sapMSegBBtnSel {
+    background: #ffffff;
+    color: #0e9ea7;
+}
+
+/* FILTER BAR */
+.slFilterBar {
+    margin: 0 2rem;
+    padding: 0.8rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.8rem;
+}
+
+.slFilterLabel {
+    font-weight: 700;
+    color: #64748b;
+    margin-right: 0.5rem;
+}
+
+.slPillBtn {
+    margin-right: 0.5rem;
+}
+
+.slPillBtn .sapMBtnInner {
+    border-radius: 2rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-weight: 700;
+}
+
+/* KPI */
+.slKpiStrip {
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.slKpiCard {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    min-height: 5rem;
+}
+
+.slKpiLabel {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.slKpiValue {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #111827;
+}
+
+.slKpiSub {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.slRiskAmber {
+    color: #e65100 !important;
+}
+
+.slRiskRed {
+    color: #c62828 !important;
+}
+
+.slRiskGreen {
+    color: #00875a !important;
+}
+
+/* HEATMAP */
+.slHeatmapCard {
+    margin: 0 2rem 2rem 2rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.slHeatmapHeader {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+}
+
+.slHCol {
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    box-sizing: border-box;
+}
+
+.slHChipset {
+    width: 30%;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+    background: #ffffff;
+}
+
+.slHFoundry {
+    width: 35%;
+    background: #e6f7f8;
+    color: #0e9ea7;
+}
+
+.slHSubstrate {
+    width: 25%;
+    background: #f3e5f5;
+    color: #6a1b9a;
+}
+
+.slHComposite {
+    width: 10%;
+    background: #111827;
+    color: #ffffff;
+}
+
+.slEmptyBox {
+    height: 8rem;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+/* BOM PAGE */
+.slBomPage {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.slBomHeader {
+    margin-bottom: 1rem;
+}
+
+.slBomTabs {
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.slBomTabs .sapMBtnInner {
+    border-radius: 2rem;
+    font-weight: 800;
+}
+
+.slBomCard {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
+.slBomCardHeader {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.slBomScore {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid #f97316;
+    border-radius: 50%;
+    color: #f97316;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 3rem;
+    margin-right: 1rem;
+}
+
+.slBomTable {
+    margin-top: 1rem;
+}
+
+.slBomFooter {
+    display: block;
+    background: #f3f4f6;
+    padding: 0.8rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+.slMarginLeft {
+    margin-left: 1rem;
+}

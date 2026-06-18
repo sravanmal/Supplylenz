@@ -1,0 +1,45 @@
+{
+  "kpis": {
+    "portfolioRisk": 53,
+    "criticalChipsets": "0/3",
+    "revenueAtRisk": "$32.2M",
+    "showing": "3/3",
+    "watchlist": 1
+  },
+
+  "chipsets": [
+    {
+      "id": "BC-A1",
+      "name": "Aurora A1 SoC",
+      "description": "Edge AI Accelerator",
+      "customer": "Hyperscaler A",
+      "family": "AI / ML",
+      "singleSource": true,
+      "watchlist": true,
+      "compositeScore": 72,
+      "riskBand": "At Risk"
+    },
+    {
+      "id": "BC-C3",
+      "name": "Cygnus C3 MCU",
+      "description": "Industrial Controller",
+      "customer": "Automotive OEM",
+      "family": "Automotive",
+      "singleSource": false,
+      "watchlist": false,
+      "compositeScore": 44,
+      "riskBand": "Watch"
+    },
+    {
+      "id": "BC-B2",
+      "name": "Borealis B2 RFIC",
+      "description": "5G RF Front-End",
+      "customer": "OEM Tier-1",
+      "family": "RF / 5G",
+      "singleSource": true,
+      "watchlist": false,
+      "compositeScore": 42,
+      "riskBand": "Watch"
+    }
+  ]
+}

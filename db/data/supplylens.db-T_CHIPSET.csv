@@ -1,0 +1,4 @@
+CHIPSET_ID;CUSTOMER_CUSTOMER_ID;CHIPSET_NAME;DESCRIPTION;PRODUCT_FAMILY;SINGLE_SOURCE_FLG;ASP_USD;ACTIVE_FLG
+BC-A1;CUST-001;Aurora A1 SoC;AI accelerator system-on-chip;AI/ML;false;125.00;true
+BC-B2;CUST-002;Borealis B2 RFIC;5G radio frequency integrated circuit;RF/5G;false;48.00;true
+BC-C3;CUST-003;Cygnus C3 MCU;Automotive microcontroller unit;Automotive;true;18.50;true

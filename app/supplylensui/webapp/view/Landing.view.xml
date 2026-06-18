@@ -1,0 +1,78 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.Landing"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page showHeader="false" class="landingPage">
+    <VBox class="topHeader">
+        <HBox justifyContent="SpaceBetween" alignItems="Center" class="headerInner">
+            <VBox>
+                <HBox alignItems="Center">
+                    <Text text="Supply" class="logoWhite"/>
+                    <Text text="Lens" class="logoTeal"/>
+                    <Text text="by Bristlecone" class="byText"/>
+                </HBox>
+                <Text text="Fabless OEM Manufacturing Visibility | Ariba SCC + SAP BTP" class="headerSub"/>
+            </VBox>
+
+            <HBox class="sourceBox" alignItems="Center">
+                <VBox class="sourceCard">
+                    <Text text="Ariba SCC" class="sourceTitle"/>
+                    <Text text="Data acquisition" class="sourceSub"/>
+                </VBox>
+                <VBox class="sourceCard">
+                    <Text text="SAP S/4HANA" class="sourceTitle"/>
+                    <Text text="BOM + demand" class="sourceSub"/>
+                </VBox>
+                <VBox class="sourceCard">
+                    <Text text="SAP BTP" class="sourceTitle"/>
+                    <Text text="Risk engine + UI" class="sourceSub"/>
+                </VBox>
+                <VBox class="sourceCard">
+                    <Text text="Direct feeds" class="sourceTitle"/>
+                    <Text text="No proxy signals" class="sourceSub"/>
+                </VBox>
+            </HBox>
+        </HBox>
+    </VBox>
+
+    <VBox class="landingHero" alignItems="Center" justifyContent="Center">
+        <Text text="BRISTLECONE IP PRODUCT · v1.0" class="topBadge"/>
+
+        <HBox alignItems="Center" justifyContent="Center">
+            <Text text="Supply" class="mainTitleWhite"/>
+            <Text text="Lens" class="mainTitleTeal"/>
+        </HBox>
+
+        <Text text="Manufacturing Visibility for Fabless OEMs" class="subTitle"/>
+
+        <Text
+            text="A single risk-scored view of your chipset supply chain from foundry and substrate suppliers - powered by Ariba SCC and SAP BTP, anchored to your BOM."
+            class="description"/>
+
+        <HBox class="kpiBox">
+            <VBox class="kpiItem">
+                <Text text="180" class="kpiValue"/>
+                <Text text="day horizon" class="kpiLabel"/>
+            </VBox>
+            <VBox class="kpiItem">
+                <Text text="26" class="kpiValue"/>
+                <Text text="weeks rolling" class="kpiLabel"/>
+            </VBox>
+            <VBox class="kpiItem">
+                <Text text="2" class="kpiValue"/>
+                <Text text="supplier tiers" class="kpiLabel"/>
+            </VBox>
+            <VBox class="kpiItem">
+                <Text text="BOM" class="kpiValue"/>
+                <Text text="level scoring" class="kpiLabel"/>
+            </VBox>
+        </HBox>
+
+        <Button
+            text="Open Dashboard"
+            press=".onOpenDashboard"
+            class="openDashboardBtn"/>
+    </VBox>
+</Page>
+</mvc:View>

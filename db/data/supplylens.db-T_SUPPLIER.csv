@@ -1,0 +1,8 @@
+SUPPLIER_ID;SUPPLIER_NAME;SUPPLIER_TYPE;ARIBA_ANID;COUNTRY_CODE;REGION;SINGLE_SOURCE_FLG;ACTIVE_FLG
+SUP-TSMC;Taiwan Semiconductor Manufacturing Company;Foundry;ANID-TSMC-001;TWN;Asia Pacific;false;true
+SUP-GF;GlobalFoundries;Foundry;ANID-GF-001;USA;North America;false;true
+SUP-UMC;United Microelectronics Corporation;Foundry;ANID-UMC-001;TWN;Asia Pacific;false;true
+SUP-IBIDEN;Ibiden Corporation;Substrate;ANID-IBIDEN-001;JPN;Asia Pacific;true;true
+SUP-UNIMICRON;Unimicron Technology;Substrate;ANID-UNIMICRON-001;TWN;Asia Pacific;false;true
+SUP-ASE;ASE Technology Holding;OSAT;ANID-ASE-001;TWN;Asia Pacific;false;true
+SUP-AMKOR;Amkor Technology;OSAT;ANID-AMKOR-001;KOR;Asia Pacific;false;true

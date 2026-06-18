@@ -1,0 +1,10 @@
+PLANT_ID;PLANT_NAME;PLANT_TYPE;COUNTRY_CODE;REGION;ACTIVE_FLG
+PL-TW01;TSMC Fab 18;Foundry Fab;TWN;Asia Pacific;true
+PL-JP01;Ibiden Ogaki Plant;Substrate Plant;JPN;Asia Pacific;true
+PL-TW02;ASE Kaohsiung FG Hub;OSAT_FG;TWN;Asia Pacific;true
+PL-SG01;GlobalFoundries Singapore;Foundry Fab;SGP;Asia Pacific;true
+PL-TW03;Unimicron Manufacturing;Substrate Plant;TWN;Asia Pacific;true
+PL-TW04;UMC Fab Plant;Foundry Fab;TWN;Asia Pacific;true
+PL-KR01;Amkor Korea Plant;OSAT_FG;KOR;Asia Pacific;true
+PL-US01;Phoenix Distribution Center;VMI;USA;North America;true
+PL-EU01;Munich Distribution Center;OEM_WH;DEU;EMEA;true
