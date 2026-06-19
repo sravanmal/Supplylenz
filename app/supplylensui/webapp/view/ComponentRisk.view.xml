@@ -1,0 +1,175 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.ComponentRisk"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="crPage">
+        <VBox class="crShell">
+
+            <VBox class="crTitleBlock">
+                <Text text="Component Risk" class="crPageTitle"/>
+                <Text text="Risk per material / component across all chipsets . Shared component concentration visible" class="crPageSub"/>
+            </VBox>
+
+            <HBox class="crKpiRow">
+                <VBox class="crKpiCard">
+                    <Text text="Total Components" class="crKpiLabel"/>
+                    <Text text="{cr>/kpis/totalComponents}" class="crKpiValue crDark"/>
+                    <Text text="across all chipsets" class="crKpiSub"/>
+                </VBox>
+
+                <VBox class="crKpiCard">
+                    <Text text="Shared Components" class="crKpiLabel"/>
+                    <Text text="{cr>/kpis/sharedComponents}" class="crKpiValue crGreen"/>
+                    <Text text="used in 2+ chipsets" class="crKpiSub"/>
+                </VBox>
+
+                <VBox class="crKpiCard">
+                    <Text text="Critical Risk" class="crKpiLabel"/>
+                    <Text text="{cr>/kpis/criticalRisk}" class="crKpiValue crGreen"/>
+                    <Text text="score &gt;= 75" class="crKpiSub"/>
+                </VBox>
+
+                <VBox class="crKpiCard">
+                    <Text text="Portfolio Rev Exposure" class="crKpiLabel"/>
+                    <Text text="{cr>/kpis/revenueExposure}" class="crKpiValue crRed"/>
+                    <Text text="combined across all components" class="crKpiSub"/>
+                </VBox>
+
+                <VBox class="crKpiCard">
+                    <Text text="Showing" class="crKpiLabel"/>
+                    <Text text="{cr>/kpis/showing}" class="crKpiValue crBlue"/>
+                    <Text text="components" class="crKpiSub"/>
+                </VBox>
+            </HBox>
+
+            <HBox class="crFilterBar" alignItems="Center">
+                <Text text="Tier:" class="crFilterLabel"/>
+
+                <Button text="All tiers" press=".onFilterAll" class="{= ${cr>/selectedTier} === 'ALL' ? 'crFilterActive' : 'crFilterBtn' }"/>
+                <Button text="Foundry" press=".onFilterFoundry" class="{= ${cr>/selectedTier} === 'FOUNDRY' ? 'crFilterActive' : 'crFilterBtn' }"/>
+                <Button text="Substrate" press=".onFilterSubstrate" class="{= ${cr>/selectedTier} === 'SUBSTRATE' ? 'crFilterActive' : 'crFilterBtn' }"/>
+
+                <Text text="" class="crDivider"/>
+                <Button text="Shared only" press=".onFilterShared" class="{= ${cr>/sharedOnly} ? 'crFilterActive' : 'crFilterBtn' }"/>
+
+                <ToolbarSpacer/>
+
+                <Text text="Sort:" class="crSortLabel"/>
+                <Select selectedKey="{cr>/sortKey}" change=".onSortChange" class="crSortSelect">
+                    <core:Item key="risk" text="Risk Score"/>
+                    <core:Item key="revenue" text="Revenue at Risk"/>
+                    <core:Item key="chipsets" text="Most Chipsets"/>
+                    <core:Item key="name" text="Name A-Z"/>
+                </Select>
+            </HBox>
+
+            <HBox class="crMainContent">
+
+                <Table
+                    class="crTable"
+                    items="{cr>/displayComponents}"
+                    mode="None"
+                    fixedLayout="true">
+
+                    <columns>
+                        <Column width="32%"><Text text="Component / Material" class="crHeaderText"/></Column>
+                        <Column width="10%"><Text text="Tier" class="crHeaderText"/></Column>
+                        <Column width="18%"><Text text="Supplier" class="crHeaderText"/></Column>
+                        <Column width="7%"><Text text="Score" class="crHeaderText"/></Column>
+                        <Column width="13%"><Text text="Chipsets Using" class="crHeaderText"/></Column>
+                        <Column width="11%"><Text text="Rev at Risk" class="crHeaderText"/></Column>
+                        <Column width="6%"><Text text="Shared?" class="crHeaderText"/></Column>
+                        <Column width="3%"><Text text=""/></Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem
+                            type="Active"
+                            press=".onSelectComponent"
+                            class="{= ${cr>score} >= 50 ? 'crRowRisk' : (${cr>score} >= 25 ? 'crRowWatch' : 'crRowHealthy') }">
+
+                            <cells>
+                                <VBox>
+                                    <Text text="{cr>name}" class="crComponentName"/>
+                                    <Text text="{cr>materialId}" class="crComponentMeta"/>
+                                    <Text text="{cr>nodeCountry}" class="crComponentMeta"/>
+                                </VBox>
+
+                                <Text text="{cr>tierLabel}" class="{= ${cr>tier} === 'FOUNDRY' ? 'crTierFoundry' : 'crTierSubstrate' }"/>
+
+                                <VBox>
+                                    <Text text="{cr>supplier}" class="crSupplierName"/>
+                                    <Text text="{cr>plant}" class="crSupplierPlant"/>
+                                </VBox>
+
+                                <Text text="{cr>score}" class="{= ${cr>score} >= 50 ? 'crScoreRisk' : (${cr>score} >= 25 ? 'crScoreWatch' : 'crScoreHealthy') }"/>
+                                <Text text="{cr>chipset}" class="crChipsetBadge"/>
+                                <Text text="{cr>revenue}" class="crRevenueText"/>
+                                <Text text="{cr>sharedText}" class="crSharedText"/>
+                                <Text text="&gt;" class="crArrowText"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <VBox class="crDetailPanel" visible="{= !!${cr>/selectedComponent} }">
+
+                    <HBox alignItems="Center">
+                        <VBox class="crDetailScoreCircle">
+                            <Text text="{cr>/selectedComponent/score}" class="crDetailScore"/>
+                        </VBox>
+
+                        <VBox>
+                            <Text text="{cr>/selectedComponent/name}" class="crDetailTitle"/>
+                            <Text text="{cr>/selectedComponent/supplier}" class="crDetailSub"/>
+                            <Text text="{cr>/selectedComponent/plantCountry}" class="crDetailSub"/>
+                        </VBox>
+
+                        <ToolbarSpacer/>
+                        <Button text="X" type="Transparent" press=".onCloseDetail"/>
+                    </HBox>
+
+                    <HBox class="crDetailTags">
+                        <Text text="{cr>/selectedComponent/tierLabel}" class="{= ${cr>/selectedComponent/tier} === 'FOUNDRY' ? 'crTierFoundry' : 'crTierSubstrate' }"/>
+                        <Text text="{cr>/selectedComponent/node}" class="crSmallTag"/>
+                        <Text text="{cr>/selectedComponent/materialId}" class="crSmallTag"/>
+                    </HBox>
+
+                    <Text text="USAGE ACROSS CHIPSETS" class="crUsageTitle"/>
+
+                    <HBox class="crUsageCard">
+                        <VBox class="crUsageScoreCircle">
+                            <Text text="{cr>/selectedComponent/score}" class="crUsageScore"/>
+                        </VBox>
+
+                        <VBox>
+                            <Text text="{cr>/selectedComponent/chipsetName}" class="crUsageChip"/>
+                            <Text text="{cr>/selectedComponent/usageText}" class="crUsageSub"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox class="crRiskBox">
+                        <Text text="Risk Scores" class="crRiskTitle"/>
+
+                        <HBox alignItems="Center" class="crRiskLine">
+                            <Text text="Component Score" class="crRiskLabel"/>
+                            <ProgressIndicator percentValue="{cr>/selectedComponent/score}" displayValue="" width="8rem"/>
+                            <Text text="{cr>/selectedComponent/score}" class="crRiskValue"/>
+                        </HBox>
+
+                        <HBox alignItems="Center" class="crRiskLine">
+                            <Text text="{cr>/selectedComponent/chipset} composite" class="crRiskLabel"/>
+                            <ProgressIndicator percentValue="{cr>/selectedComponent/score}" displayValue="" width="8rem"/>
+                            <Text text="{cr>/selectedComponent/score}" class="crRiskValue"/>
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </Page>
+</mvc:View>

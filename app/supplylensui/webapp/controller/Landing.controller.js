@@ -6,9 +6,7 @@ sap.ui.define([
     return Controller.extend("sravan.bristlecone.supplylensui.controller.Landing", {
 
         onOpenDashboard: function () {
-            this.getOwnerComponent()
-                .getRouter()
-                .navTo("Dashboard");
+            this.getOwnerComponent().getRouter().navTo("ChipsetRisk");
         }
 
     });

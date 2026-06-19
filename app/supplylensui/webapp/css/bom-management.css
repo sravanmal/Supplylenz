@@ -1,0 +1,315 @@
+.bomPage,
+.bomShell {
+    background: #f7f9fb !important;
+}
+
+.bomPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.bomShell {
+    padding: 1.5rem 2rem;
+}
+
+.bomTitleBlock {
+    border-left: 5px solid #1f73d1;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bomPageTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.bomPageSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.bomModeBar {
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.bomModeBtn .sapMBtnInner {
+    height: 2.4rem !important;
+    border-radius: 1.4rem !important;
+    font-weight: 800 !important;
+    padding: 0 1.4rem !important;
+}
+
+.bomModeBtn .sapMBtnDefault {
+    background: #ffffff !important;
+    border: 1px solid #d7dde5 !important;
+    color: #0d63c9 !important;
+}
+
+.bomModeBtn .sapMBtnEmphasized {
+    background: #0d63c9 !important;
+    border: 1px solid #0d63c9 !important;
+    color: #ffffff !important;
+}
+
+.bomModeBtn:hover .sapMBtnInner {
+    background: #f8fafc !important;
+}
+
+.bomModeActive .sapMBtnInner {
+    height: 2.4rem !important;
+    background: #0d63c9 !important;
+    border: 1px solid #0d63c9 !important;
+    border-radius: 1.4rem !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    padding: 0 1.4rem !important;
+}
+
+.bomModeActive:hover .sapMBtnInner {
+    background: #0d63c9 !important;
+    color: #ffffff !important;
+}
+
+.bomChipRow {
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.bomChip {
+    min-width: 10rem;
+    background: #ffffff;
+    border: 2px solid #d9d9d9;
+    border-radius: 0.65rem;
+    padding: 0.75rem 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bomChip:hover {
+    border-color: #bfc7d1;
+}
+
+.bomChipActive {
+    border: 3px solid #ff9800;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.bomChipTitle {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #111827 !important;
+    text-decoration: none !important;
+    margin-bottom: 0.25rem;
+}
+
+.bomChipSub {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.bomDetailCard,
+.bomUploadCard,
+.bomPullCard {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    padding: 1.3rem;
+    box-sizing: border-box;
+}
+
+.bomRiskCircle {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 3px solid #ff8a00;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.bomRiskScore {
+    color: #f05a00;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.bomDetailTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.bomDetailSub {
+    color: #6b7280;
+}
+
+.bomBadgeBlue,
+.bomBadgeGreen {
+    border-radius: 1rem;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-left: 0.6rem;
+}
+
+.bomBadgeBlue {
+    background: #e1f0ff;
+    color: #0b65c2;
+}
+
+.bomBadgeGreen {
+    background: #dff4df;
+    color: #247a24;
+}
+
+.bomTable {
+    margin-top: 1.4rem;
+}
+
+.bomLineDesc,
+.bomSupplier {
+    font-weight: 800;
+    color: #020617;
+}
+
+.bomTier {
+    background: #dff8fb;
+    color: #008c94;
+    border-radius: 1rem;
+    padding: 0.2rem 0.55rem;
+    font-weight: 800;
+}
+
+.bomFooterNote {
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+    color: #6b7280;
+    margin-top: 0.8rem;
+}
+
+.bomSectionTitle {
+    border-left: 5px solid #1f73d1;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bomCardTitle {
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.bomCardSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.bomUploadCard,
+.bomPullCard {
+    max-width: 52rem;
+}
+
+.bomDropBox {
+    height: 10rem;
+    border: 2px dashed #d9d9d9;
+    border-radius: 0.8rem;
+    margin: 1.2rem 0;
+}
+
+.bomDropTitle {
+    font-weight: 900;
+    font-size: 1.05rem;
+}
+
+.bomDropSub {
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+.bomRequiredLabel {
+    color: #6b7280;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.bomColumnTags {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.bomColumnTag {
+    background: #e1f0ff;
+    color: #0b65c2;
+    border-radius: 0.4rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    font-family: monospace;
+}
+
+.bomCodeBlock {
+    background: #14152a;
+    color: #78f6ff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-family: monospace;
+    white-space: pre-line;
+}
+
+.bomInfoGrid {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.bomInfoBox {
+    width: 21rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+}
+
+.bomInfoLabel {
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+.bomInfoValue {
+    color: #020617;
+    font-family: monospace;
+    font-weight: 900;
+}
+
+.bomFetchLabel {
+    margin-top: 1.4rem;
+    margin-bottom: 0.6rem;
+    font-weight: 800;
+}
+
+.bomFetchInput {
+    width: 36rem;
+    margin-right: 0.6rem;
+}
+
+.bomPullBtn .sapMBtnInner {
+    background: #129faa !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    font-weight: 900 !important;
+}
+
+.bomAfterPull {
+    background: #f3f4f6;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    line-height: 1.7;
+}
+
+.bomAfterTitle {
+    font-weight: 900;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}

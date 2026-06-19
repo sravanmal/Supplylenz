@@ -1,0 +1,166 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.AIRecommendations"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="aiPage">
+        <VBox class="aiShell">
+
+            <VBox class="aiTitleBlock">
+                <Text text="AI Recommendations" class="aiPageTitle"/>
+                <Text text="Powered by Claude . Analyzes live risk data and generates prioritised supply chain actions" class="aiPageSub"/>
+            </VBox>
+
+            <HBox class="aiMainLayout">
+
+                <VBox class="aiLeftArea">
+
+                    <HBox class="aiActionBar">
+                        <Select selectedKey="{ai>/selectedChipset}" class="aiSelect">
+                            <core:Item key="ALL" text="All Chipsets"/>
+                            <core:Item key="BC-A1" text="Aurora A1 SoC"/>
+                            <core:Item key="BC-B2" text="Borealis B2 RFIC"/>
+                            <core:Item key="BC-C3" text="Cygnus C3 MCU"/>
+                        </Select>
+
+                        <Select selectedKey="{ai>/selectedCategory}" class="aiSelect">
+                            <core:Item key="ALL" text="All Categories"/>
+                            <core:Item key="INVENTORY" text="Inventory"/>
+                            <core:Item key="SUPPLIER" text="Supplier Negotiation"/>
+                            <core:Item key="RISK" text="Risk Mitigation"/>
+                            <core:Item key="DEMAND" text="Demand Planning"/>
+                            <core:Item key="QUALITY" text="Data Quality"/>
+                            <core:Item key="DUAL" text="Dual Sourcing"/>
+                        </Select>
+
+                        <Button
+                            text="Run AI Analysis"
+                            press=".onRunAnalysis"
+                            class="aiRunTopBtn"/>
+                    </HBox>
+
+                    <VBox
+                        class="aiAnalysisBox"
+                        visible="{= !${ai>/analysisDone} }"
+                        alignItems="Center"
+                        justifyContent="Center">
+
+                        <VBox class="aiIconBox">
+                            <Text text="*" class="aiIconText"/>
+                        </VBox>
+
+                        <Text text="Ready to analyse your supply chain" class="aiReadyTitle"/>
+
+                        <Text
+                            text="Claude will read your live risk scores, supplier key figures, OEM stock levels, demand commitments, and sync status to generate specific, prioritised recommendations."
+                            class="aiReadySub"/>
+
+                        <HBox class="aiPillRow">
+                            <Text text="3 chipsets analysed" class="aiPillTeal"/>
+                            <Text text="9 supplier feeds" class="aiPillPurple"/>
+                            <Text text="Live risk scores" class="aiPillRed"/>
+                            <Text text="OEM stock positions" class="aiPillGreen"/>
+                        </HBox>
+
+                        <Button
+                            text="Run AI Analysis"
+                            press=".onRunAnalysis"
+                            class="aiRunMainBtn"/>
+                    </VBox>
+
+                    <VBox
+                        class="aiResultsBox"
+                        visible="{ai>/analysisDone}">
+
+                        <HBox class="aiResultsHeader" alignItems="Center">
+                            <VBox>
+                                <Text text="Prioritised Recommendations" class="aiResultsTitle"/>
+                                <Text text="Generated from live risk, BOM, supplier and stock signals" class="aiResultsSub"/>
+                            </VBox>
+
+                            <ToolbarSpacer/>
+
+                            <Button
+                                text="Reset"
+                                press=".onResetAnalysis"
+                                class="aiResetBtn"/>
+                        </HBox>
+
+                        <VBox items="{ai>/recommendations}" class="aiRecommendationList">
+                            <VBox class="aiRecommendationCard">
+                                <HBox alignItems="Center">
+                                    <Text text="{ai>priority}" class="{= ${ai>priority} === 'High' ? 'aiPriorityHigh' : (${ai>priority} === 'Medium' ? 'aiPriorityMedium' : 'aiPriorityLow') }"/>
+                                    <Text text="{ai>category}" class="aiRecCategory"/>
+                                    <ToolbarSpacer/>
+                                    <Text text="{ai>chipset}" class="aiRecChipset"/>
+                                </HBox>
+
+                                <Text text="{ai>title}" class="aiRecTitle"/>
+                                <Text text="{ai>description}" class="aiRecDesc"/>
+
+                                <HBox class="aiRecFooter">
+                                    <Text text="{ai>impact}" class="aiRecImpact"/>
+                                    <Text text="{ai>owner}" class="aiRecOwner"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                    </VBox>
+
+                </VBox>
+
+                <VBox class="aiChatPanel">
+
+                    <HBox class="aiChatHeader" alignItems="Center">
+                        <VBox class="aiChatIcon">
+                            <Text text="*" class="aiChatIconText"/>
+                        </VBox>
+
+                        <VBox>
+                            <Text text="Ask Claude" class="aiChatTitle"/>
+                            <Text text="Ask anything about your supply chain" class="aiChatSub"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox class="aiChatBody">
+
+                        <Text
+                            text="Ask questions about your supply chain data"
+                            class="aiChatPrompt"/>
+
+                        <VBox items="{ai>/suggestions}" class="aiSuggestionList">
+                            <Button
+                                text="{ai>text}"
+                                press=".onSuggestionPress"
+                                class="aiSuggestionBtn"/>
+                        </VBox>
+
+                        <VBox items="{ai>/messages}" class="aiMessages">
+                            <VBox class="{= ${ai>type} === 'user' ? 'aiUserMsg' : 'aiBotMsg' }">
+                                <Text text="{ai>text}" class="aiMsgText"/>
+                            </VBox>
+                        </VBox>
+
+                    </VBox>
+
+                    <HBox class="aiChatInputBar">
+                        <Input
+                            value="{ai>/chatInput}"
+                            placeholder="Ask Claude..."
+                            class="aiChatInput"
+                            submit=".onSendMessage"/>
+
+                        <Button
+                            text="Send"
+                            press=".onSendMessage"
+                            class="aiSendBtn"/>
+                    </HBox>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </Page>
+</mvc:View>

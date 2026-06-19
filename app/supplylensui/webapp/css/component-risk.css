@@ -1,0 +1,364 @@
+.crPage,
+.crShell {
+    background: #f7f9fb !important;
+}
+
+.crPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.crShell {
+    padding: 1.5rem 2rem;
+}
+
+.crTitleBlock {
+    border-left: 5px solid #f05a00;
+    padding-left: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.crPageTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.crPageSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.crKpiRow {
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.crKpiCard {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+}
+
+.crKpiLabel {
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+
+.crKpiValue {
+    font-size: 1.65rem;
+    font-weight: 900;
+    line-height: 2rem;
+}
+
+.crKpiSub {
+    color: #4b5563;
+    font-size: 0.78rem;
+}
+
+.crDark { color: #020617; }
+.crGreen { color: #15803d; }
+.crRed { color: #c91f2e; }
+.crBlue { color: #0d63c9; }
+
+.crFilterBar {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    min-height: 3.4rem;
+}
+
+.crFilterLabel,
+.crSortLabel {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #4b5563;
+    margin-right: 0.5rem;
+}
+
+.crFilterBtn,
+.crFilterActive {
+    margin-right: 0.6rem;
+}
+
+.crFilterBtn .sapMBtnInner,
+.crFilterActive .sapMBtnInner {
+    height: 2rem !important;
+    min-height: 2rem !important;
+    border-radius: 1rem !important;
+    padding: 0 1rem !important;
+    font-weight: 600 !important;
+}
+
+.crFilterBtn .sapMBtnInner {
+    background: #ffffff !important;
+    border: 1px solid #dfe3e8 !important;
+    color: #4b5563 !important;
+}
+
+.crFilterActive .sapMBtnInner {
+    background: #fff7ed !important;
+    border: 1px solid #f05a00 !important;
+    color: #f05a00 !important;
+    font-weight: 800 !important;
+}
+
+.crDivider {
+    width: 1px;
+    height: 1.6rem;
+    background: #dfe3e8;
+    margin: 0 0.8rem 0 0.2rem;
+}
+
+.crSortLabel {
+    margin-left: auto;
+    margin-right: 0.6rem;
+}
+
+.crSortSelect {
+    width: 12rem;
+}
+
+.crMainContent {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.crTable {
+    flex: 1;
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    overflow: hidden;
+}
+
+.crTable .sapMListTblHeaderCell {
+    background: #f8fafc !important;
+    border-bottom: 1px solid #dfe3e8 !important;
+    height: 2.6rem !important;
+    vertical-align: middle !important;
+    padding: 0.55rem 1rem !important;
+}
+
+.crTable .sapMListTblCell {
+    vertical-align: middle !important;
+    padding: 0.7rem 1rem !important;
+}
+
+.crTable .sapMLIB {
+    min-height: 5.2rem;
+    cursor: pointer;
+}
+
+.crTable .sapMLIB:hover {
+    background: #f8fafc !important;
+}
+
+.crHeaderText {
+    font-size: 0.78rem;
+    font-weight: 900;
+    color: #5b6472;
+    white-space: nowrap;
+}
+
+.crRowRisk {
+    border-left: 4px solid #f05a00 !important;
+}
+
+.crRowWatch {
+    border-left: 4px solid #f59e0b !important;
+}
+
+.crRowHealthy {
+    border-left: 4px solid #16a34a !important;
+}
+
+.crComponentName,
+.crSupplierName {
+    font-weight: 900;
+    color: #020617;
+}
+
+.crComponentMeta,
+.crSupplierPlant {
+    color: #6b7280;
+    font-size: 0.78rem;
+}
+
+.crTierFoundry,
+.crTierSubstrate {
+    border-radius: 1rem;
+    padding: 0.25rem 0.7rem;
+    font-weight: 900;
+    font-size: 0.75rem;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.crTierFoundry {
+    background: #dff8fb;
+    color: #008c94;
+}
+
+.crTierSubstrate {
+    background: #f4dffb;
+    color: #7e22ce;
+}
+
+.crScoreRisk,
+.crScoreWatch,
+.crScoreHealthy {
+    border-radius: 0.6rem;
+    padding: 0.25rem 0.55rem;
+    font-weight: 900;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.crScoreRisk {
+    background: #fff0db;
+    color: #f05a00;
+}
+
+.crScoreWatch {
+    background: #fff9db;
+    color: #f59e0b;
+}
+
+.crScoreHealthy {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.crChipsetBadge {
+    background: #fff0db;
+    color: #f05a00;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.crRevenueText {
+    color: #dc2626;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.crSharedText {
+    color: #6b7280;
+}
+
+.crArrowText {
+    color: #008c94;
+    font-weight: 900;
+}
+
+.crDetailPanel {
+    width: 30rem;
+    background: #fff3dd;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.crDetailScoreCircle,
+.crUsageScoreCircle {
+    width: 3.7rem;
+    height: 3.7rem;
+    border: 3px solid #f05a00;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.crDetailScore,
+.crUsageScore {
+    color: #f05a00;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.crDetailTitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.crDetailSub {
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+
+.crDetailTags {
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.crSmallTag {
+    background: #f3f4f6;
+    color: #6b7280;
+    border-radius: 1rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+.crUsageTitle,
+.crRiskTitle {
+    font-weight: 900;
+    color: #6b7280;
+    margin-bottom: 0.8rem;
+}
+
+.crUsageCard {
+    background: #fff7ed;
+    border: 1px solid #ffbf73;
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.crUsageChip {
+    font-weight: 900;
+    color: #020617;
+}
+
+.crUsageSub {
+    color: #6b7280;
+    font-size: 0.78rem;
+}
+
+.crRiskBox {
+    background: #f3f4f6;
+    border-radius: 0.6rem;
+    padding: 1rem;
+}
+
+.crRiskLine {
+    margin-bottom: 0.6rem;
+}
+
+.crRiskLabel {
+    width: 9rem;
+    color: #4b5563;
+    font-size: 0.8rem;
+}
+
+.crRiskValue {
+    margin-left: 0.8rem;
+    color: #f05a00;
+    font-weight: 900;
+}

@@ -1,0 +1,495 @@
+/* ===================================================== */
+/* CHIPSET RISK PAGE */
+/* ===================================================== */
+
+.slChipsetPage,
+.slChipsetShell {
+    padding: 1.5rem 2rem 2rem 2rem;
+    background: #f7f9fb !important;
+}
+
+.slChipsetPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.slChipsetShell {
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-sizing: border-box;
+}
+
+/* PAGE HEADER */
+
+.slChipsetHeader {
+    width: 100%;
+    margin-bottom: 1.4rem;
+}
+
+.slPageTitleBlock {
+    border-left: 5px solid #08a6a6;
+    padding-left: 1rem;
+}
+
+.slPageTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.slPageSubTitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.slViewToggle {
+    background: #f3f4f6;
+    border-radius: 0.9rem;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    margin-left: auto;
+}
+
+.slToggleBtn .sapMBtnInner {
+    border: none !important;
+    background: transparent !important;
+    color: #6b7280 !important;
+    border-radius: 0.7rem !important;
+    font-weight: 600 !important;
+}
+
+.slToggleBtnActive .sapMBtnInner {
+    border: none !important;
+    background: #ffffff !important;
+    color: #009f9a !important;
+    border-radius: 0.7rem !important;
+    font-weight: 900 !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* FILTER BAR */
+
+.slFilterBar {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 1rem;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.slFilterLabel,
+.slSortLabel {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #6b7280;
+    margin-right: 0.8rem;
+}
+
+.slFilterPill {
+    margin-right: 0.55rem;
+}
+
+.slFilterPill .sapMBtnInner {
+    height: 2rem !important;
+    min-height: 2rem !important;
+
+    background: #ffffff !important;
+    border: 1px solid #d8dde6 !important;
+
+    border-radius: 1.2rem !important;
+
+    color: #475569 !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+
+    padding: 0 0.9rem !important;
+}
+
+.slFilterPill:hover .sapMBtnInner {
+    background: #f8fafc !important;
+}
+
+.slSortSelect {
+    width: 14rem;
+    margin-right: 0.7rem;
+}
+
+.slSortSelect .sapMSlt {
+    height: 2rem !important;
+}
+
+.slFiltersBtn .sapMBtnInner {
+    height: 2rem !important;
+
+    background: #ffffff !important;
+    border: 1px solid #d8dde6 !important;
+
+    border-radius: 0.7rem !important;
+
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
+/* KPI */
+
+.slKpiRow {
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.slKpiCard {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    padding: 1rem 1.3rem;
+    box-sizing: border-box;
+    min-height: 6.2rem;
+}
+
+.slKpiLabel {
+    font-size: 0.82rem;
+    color: #6b7280;
+}
+
+.slKpiValue {
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 2rem;
+    margin-top: 0.3rem;
+}
+
+.slKpiSub {
+    font-size: 0.8rem;
+    color: #374151;
+}
+
+.slRiskOrange {
+    color: #f05a00 !important;
+}
+
+.slRiskGreen {
+    color: #15803d !important;
+}
+
+.slRiskRed {
+    color: #c91f2e !important;
+}
+
+.slRiskGray {
+    color: #6b7280 !important;
+}
+
+.slRiskBlue {
+    color: #0057c2 !important;
+}
+
+/* HEATMAP */
+
+.slHeatmapCard {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    padding: 1.4rem 1.4rem 0 1.4rem;
+    box-sizing: border-box;
+}
+
+.slHeatmapHead {
+    height: 2.6rem;
+    align-items: center;
+}
+
+.slHeadChipset {
+    width: 29%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6b7280;
+    padding-left: 1rem;
+}
+
+.slHeadFoundry {
+    width: 29%;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+    background: #e5f6f7;
+    color: #007c80;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.slHeadSubstrate {
+    width: 29%;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+    background: #f2e6f4;
+    color: #6b21a8;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.slHeadComposite {
+    width: 13%;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+    background: #14152a;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.slHeatmapRow {
+    min-height: 8.8rem;
+    border: 1px solid #e5e7eb;
+    border-bottom: none;
+}
+
+.slChipsetCol {
+    width: 29%;
+    background: #ffffff;
+    padding: 2.4rem 1rem 1rem 1rem;
+    box-sizing: border-box;
+}
+
+.slFoundryCol {
+    width: 29%;
+    background: #eefafa;
+    padding: 0.8rem;
+    gap: 0.55rem;
+    box-sizing: border-box;
+}
+
+.slSubstrateCol {
+    width: 29%;
+    background: #fbf5ff;
+    padding: 0.8rem;
+    gap: 0.55rem;
+    box-sizing: border-box;
+}
+
+.slCompositeCol {
+    width: 13%;
+    background: #fff3dd;
+    align-items: center;
+    justify-content: center;
+}
+
+.slChipName {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.slChipDesc {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.slChipTags {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.slTag {
+    background: #f8fafc;
+    border-radius: 1rem;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.72rem;
+    color: #6b7280;
+}
+
+.slSingleSource {
+    background: #fff0db;
+    color: #f05a00;
+    border-radius: 0.8rem;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.slDrillLink {
+    font-size: 0.72rem;
+    color: #008c94 !important;
+    text-decoration: none !important;
+}
+
+.slLineCard {
+    min-height: 3.6rem;
+    background: #ffffff;
+    border: 1px solid #ffbf73;
+    border-radius: 0.45rem;
+    padding: 0.55rem 0.7rem;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.slScoreCircle {
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 3px solid #ff8a00;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+    flex-shrink: 0;
+}
+
+.slScoreText {
+    color: #f05a00;
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.slLineTitle {
+    font-size: 0.82rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.slLineSub {
+    font-size: 0.75rem;
+    color: #4b5563;
+}
+
+.slLineMeta {
+    font-size: 0.68rem;
+    color: #6b7280;
+}
+
+.slCompositeScore {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f05a00;
+}
+
+.slCompositeLabel {
+    font-size: 0.75rem;
+    color: #f05a00;
+    font-weight: 900;
+}
+
+.slCompositeSub {
+    font-size: 0.65rem;
+    color: #6b7280;
+    margin-top: 0.3rem;
+}
+
+/* LEGEND */
+
+.slHeatmapLegend {
+    padding: 0.75rem 0;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid #e5e7eb;
+}
+
+.slLegendItem {
+    gap: 0.35rem;
+}
+
+.slLegendBox {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1.5px solid;
+}
+
+.slLegendHealthy {
+    border-color: #22c55e;
+}
+
+.slLegendWatch {
+    border-color: #f59e0b;
+}
+
+.slLegendRisk {
+    border-color: #f97316;
+}
+
+.slLegendCritical {
+    border-color: #ef4444;
+}
+
+.slLegendText,
+.slLegendFormula {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.slLegendFormula {
+    margin-left: 0.8rem;
+}
+
+/* INSIGHT */
+
+.slInsightBanner {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    background: #dff8fb;
+    border: 1px solid #8edbe0;
+    border-radius: 0.6rem;
+}
+
+.slInsightIcon {
+    font-weight: 900;
+    color: #0f172a;
+    margin-right: 0.8rem;
+}
+
+.slInsightText {
+    font-size: 0.82rem;
+    color: #087f83;
+}
+
+/* AI SNAPSHOT */
+
+.slAiSnapshotBox {
+    min-height: 25rem;
+    border: 2px dashed #d9d9d9;
+    border-radius: 1rem;
+    background: #ffffff;
+    margin-top: 1.2rem;
+    text-align: center;
+}
+
+.slAiIcon {
+    width: 4.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+    background: #e3f8fa;
+    color: #009f9a;
+    border-radius: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.slAiTitle {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.slAiDesc {
+    max-width: 42rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.slGenerateBtn .sapMBtnInner {
+    background: #129faa !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.7rem !important;
+    font-weight: 900 !important;
+    height: 3rem !important;
+    padding: 0 2rem !important;
+}

@@ -4,7 +4,10 @@ service ChipsetService @(path: 'ChipsetService') {
 
     // Endpoint for T_CHIPSET entity
     entity Chipsets as projection on db.T_CHIPSET{
-        *
+        CHIPSET_ID,
+        CHIPSET_NAME,
+        PRODUCT_FAMILY,
+        ASP_USD
     };
 
     // endpoint for T_KF_TIME_SERIES entity

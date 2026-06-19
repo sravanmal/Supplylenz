@@ -48,7 +48,9 @@
       "minUI5Version": "1.149.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -59,7 +61,9 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "sravan.bristlecone.supplylensui.i18n.i18n"
+          "bundleName": "sravan.bristlecone.supplylensui.i18n.i18n",
+          "supportedLocales": [""],
+          "fallbackLocale": ""
         }
       },
       "": {
@@ -79,6 +83,18 @@
         },
         {
           "uri": "css/dashboard.css"
+        },
+        {
+          "uri": "css/chipset-risk.css"
+        },
+        {
+          "uri": "css/bom-management.css"
+        },
+        {
+          "uri": "css/component-risk.css"
+        },
+        {
+          "uri": "css/ai-recommendations.css"
         }
       ]
     },
@@ -101,17 +117,34 @@
           "target": "Landing"
         },
         {
-          "pattern": "dashboard",
-          "name": "Dashboard",
+          "pattern": "dashboard/chipset",
+          "name": "ChipsetRisk",
+          "target": "Dashboard"
+        },
+        {
+          "pattern": "dashboard/bom",
+          "name": "BomManagement",
+          "target": "Dashboard"
+        },
+        {
+          "pattern": "dashboard/component",
+          "name": "ComponentRisk",
+          "target": "Dashboard"
+        },
+        {
+          "pattern": "dashboard/ai",
+          "name": "AIRecommendations",
           "target": "Dashboard"
         }
       ],
       "targets": {
         "Landing": {
-          "viewName": "Landing"
+          "viewName": "Landing",
+          "viewId": "Landing"
         },
         "Dashboard": {
-          "viewName": "Dashboard"
+          "viewName": "Dashboard",
+          "viewId": "Dashboard"
         }
       }
     },

@@ -1,0 +1,208 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.ChipsetRisk"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="slChipsetPage">
+        <VBox class="slChipsetShell">
+
+            <!-- PAGE TITLE -->
+            <HBox class="slChipsetHeader" alignItems="Center">
+                <VBox class="slPageTitleBlock">
+                    <Text text="Chipset Risk" class="slPageTitle"/>
+                    <Text text="All BOM lines with trading partners . Click any row to drill in" class="slPageSubTitle"/>
+                </VBox>
+
+                <ToolbarSpacer/>
+
+                <HBox class="slViewToggle">
+                    <Button
+                        text="Heatmap"
+                        press=".onShowHeatmap"
+                        class="{= ${chipset>/selectedView} === 'HEATMAP' ? 'slToggleBtnActive' : 'slToggleBtn' }"/>
+
+                    <Button
+                        text="* AI Snapshot"
+                        press=".onShowAISnapshot"
+                        class="{= ${chipset>/selectedView} === 'AI' ? 'slToggleBtnActive' : 'slToggleBtn' }"/>
+                </HBox>
+            </HBox>
+
+            <!-- HEATMAP CONTENT -->
+            <VBox visible="{= ${chipset>/selectedView} === 'HEATMAP' }">
+
+                <!-- FILTER BAR -->
+                <HBox class="slFilterBar" alignItems="Center">
+
+                    <Text text="Quick filter:" class="slFilterLabel"/>
+
+                    <Button text="! Needs Attention" class="slFilterPill"/>
+                    <Button text="* My Watchlist" class="slFilterPill"/>
+                    <Button text="! Single-Source" class="slFilterPill"/>
+
+                    <ToolbarSpacer/>
+
+                    <Text text="Sort:" class="slSortLabel"/>
+
+                    <Select class="slSortSelect">
+                        <core:Item key="risk" text="Risk Score (high first)"/>
+                        <core:Item key="revenue" text="Revenue at Risk"/>
+                        <core:Item key="gap" text="Supply Gap (worst first)"/>
+                        <core:Item key="name" text="Name A-Z"/>
+                    </Select>
+
+                    <Button text="Filters >" class="slFiltersBtn"/>
+
+                </HBox>
+
+                <!-- KPI CARDS -->
+                <HBox class="slKpiRow">
+                    <VBox class="slKpiCard">
+                        <Text text="Portfolio Risk" class="slKpiLabel"/>
+                        <Text text="{chipset>/kpis/portfolioRisk}" class="slKpiValue slRiskOrange"/>
+                        <Text text="At Risk" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Critical Chipsets" class="slKpiLabel"/>
+                        <Text text="{chipset>/kpis/criticalChipsets}" class="slKpiValue slRiskGreen"/>
+                        <Text text="score &gt;= 75" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Revenue at Risk" class="slKpiLabel"/>
+                        <Text text="{chipset>/kpis/revenueAtRisk}" class="slKpiValue slRiskRed"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Showing" class="slKpiLabel"/>
+                        <Text text="{chipset>/kpis/showing}" class="slKpiValue slRiskGray"/>
+                        <Text text="chipsets" class="slKpiSub"/>
+                    </VBox>
+
+                    <VBox class="slKpiCard">
+                        <Text text="Watchlist" class="slKpiLabel"/>
+                        <Text text="{chipset>/kpis/watchlist}" class="slKpiValue slRiskBlue"/>
+                        <Text text="pinned chipsets" class="slKpiSub"/>
+                    </VBox>
+                </HBox>
+
+                <!-- HEATMAP CARD -->
+                <VBox class="slHeatmapCard">
+
+                    <!-- TABLE HEADER -->
+                    <HBox class="slHeatmapHead">
+                        <Text text="Chipset" class="slHeadChipset"/>
+                        <Text text="FOUNDRY LINES" class="slHeadFoundry"/>
+                        <Text text="SUBSTRATE LINES" class="slHeadSubstrate"/>
+                        <Text text="COMPOSITE" class="slHeadComposite"/>
+                    </HBox>
+
+                    <!-- ROWS -->
+                    <VBox items="{chipset>/chipsets}">
+                        <HBox class="slHeatmapRow">
+
+                            <!-- CHIPSET -->
+                            <VBox class="slChipsetCol">
+                                <Text text="{chipset>name}" class="slChipName"/>
+                                <Text text="{chipset>description}" class="slChipDesc"/>
+
+                                <HBox alignItems="Center" class="slChipTags">
+                                    <Text text="{chipset>tag}" class="slTag"/>
+                                    <Text
+                                        text="! Single-source"
+                                        visible="{chipset>singleSource}"
+                                        class="slSingleSource"/>
+                                    <Link text="Click to drill in &gt;" class="slDrillLink"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- FOUNDRY -->
+                            <VBox class="slFoundryCol" items="{chipset>foundries}">
+                                <HBox class="slLineCard">
+                                    <VBox class="slScoreCircle">
+                                        <Text text="{chipset>score}" class="slScoreText"/>
+                                    </VBox>
+
+                                    <VBox>
+                                        <Text text="{chipset>title}" class="slLineTitle"/>
+                                        <Text text="{chipset>supplier}" class="slLineSub"/>
+                                        <Text text="{chipset>meta}" class="slLineMeta"/>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <!-- SUBSTRATE -->
+                            <VBox class="slSubstrateCol" items="{chipset>substrates}">
+                                <HBox class="slLineCard">
+                                    <VBox class="slScoreCircle">
+                                        <Text text="{chipset>score}" class="slScoreText"/>
+                                    </VBox>
+
+                                    <VBox>
+                                        <Text text="{chipset>title}" class="slLineTitle"/>
+                                        <Text text="{chipset>supplier}" class="slLineSub"/>
+                                        <Text text="{chipset>meta}" class="slLineMeta"/>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <!-- COMPOSITE -->
+                            <VBox class="slCompositeCol">
+                                <Text text="{chipset>compositeScore}" class="slCompositeScore"/>
+                                <Text text="{chipset>riskLabel}" class="slCompositeLabel"/>
+                                <Text text="max(lines)" class="slCompositeSub"/>
+                            </VBox>
+
+                        </HBox>
+                    </VBox>
+
+                    <!-- LEGEND -->
+                    <HBox class="slHeatmapLegend" alignItems="Center">
+                        <HBox class="slLegendItem" alignItems="Center">
+                            <Text text="" class="slLegendBox slLegendHealthy"/>
+                            <Text text="0-24 Healthy" class="slLegendText"/>
+                        </HBox>
+
+                        <HBox class="slLegendItem" alignItems="Center">
+                            <Text text="" class="slLegendBox slLegendWatch"/>
+                            <Text text="25-49 Watch" class="slLegendText"/>
+                        </HBox>
+
+                        <HBox class="slLegendItem" alignItems="Center">
+                            <Text text="" class="slLegendBox slLegendRisk"/>
+                            <Text text="50-74 At Risk" class="slLegendText"/>
+                        </HBox>
+
+                        <HBox class="slLegendItem" alignItems="Center">
+                            <Text text="" class="slLegendBox slLegendCritical"/>
+                            <Text text="75-100 Critical" class="slLegendText"/>
+                        </HBox>
+
+                        <Text text="Composite = max() across all BOM lines" class="slLegendFormula"/>
+                    </HBox>
+
+                </VBox>
+
+                <!-- INSIGHT BANNER -->
+                <HBox class="slInsightBanner" alignItems="Center">
+                    <Text text="i" class="slInsightIcon"/>
+                    <Text text="{chipset>/insightText}" class="slInsightText"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- AI SNAPSHOT CONTENT -->
+            <VBox visible="{= ${chipset>/selectedView} === 'AI' }" class="slAiSnapshotBox" alignItems="Center" justifyContent="Center">
+                <Text text="*" class="slAiIcon"/>
+                <Text text="AI Portfolio Snapshot" class="slAiTitle"/>
+                <Text
+                    text="Claude reads your live risk scores, supplier key figures, OEM stock, and demand signals and generates a plain-English executive summary in seconds."
+                    class="slAiDesc"/>
+                <Button text="Generate Snapshot" class="slGenerateBtn"/>
+            </VBox>
+
+        </VBox>
+    </Page>
+</mvc:View>

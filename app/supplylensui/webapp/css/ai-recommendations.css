@@ -1,0 +1,361 @@
+.aiPage,
+.aiShell {
+    background: #f7f9fb !important;
+}
+
+.aiPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.aiShell {
+    padding: 1.5rem 2rem;
+}
+
+.aiTitleBlock {
+    border-left: 5px solid #0d9ca6;
+    padding-left: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.aiPageTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.aiPageSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.aiMainLayout {
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.aiLeftArea {
+    flex: 1;
+    min-width: 0;
+}
+
+.aiActionBar {
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+
+.aiSelect {
+    width: 12rem;
+}
+
+.aiRunTopBtn .sapMBtnInner {
+    background: #17172d !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 0.55rem !important;
+    font-weight: 900 !important;
+    padding: 0 1.7rem !important;
+}
+
+.aiAnalysisBox {
+    min-height: 28rem;
+    border: 2px dashed #d9d9d9;
+    border-radius: 0.8rem;
+    background: #ffffff;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.aiIconBox {
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: 1rem;
+    background: #dff8fb;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+}
+
+.aiIconText {
+    color: #0097a0;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.aiReadyTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #020617;
+    margin-bottom: 1rem;
+}
+
+.aiReadySub {
+    width: 42rem;
+    max-width: 90%;
+    text-align: center;
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.aiPillRow {
+    gap: 0.9rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.aiPillTeal,
+.aiPillPurple,
+.aiPillRed,
+.aiPillGreen {
+    border-radius: 1rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.aiPillTeal {
+    background: #e1f6f7;
+    color: #0097a0;
+}
+
+.aiPillPurple {
+    background: #f4e8ff;
+    color: #7e22ce;
+}
+
+.aiPillRed {
+    background: #ffe8e8;
+    color: #dc2626;
+}
+
+.aiPillGreen {
+    background: #e3f8e8;
+    color: #008f5a;
+}
+
+.aiRunMainBtn .sapMBtnInner {
+    height: 3rem !important;
+    background: #129faa !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 0.7rem !important;
+    font-weight: 900 !important;
+    padding: 0 2.5rem !important;
+}
+
+.aiResultsBox {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+}
+
+.aiResultsHeader {
+    margin-bottom: 1rem;
+}
+
+.aiResultsTitle {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.aiResultsSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.aiResetBtn .sapMBtnInner {
+    border-radius: 1rem !important;
+}
+
+.aiRecommendationList {
+    gap: 1rem;
+}
+
+.aiRecommendationCard {
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    background: #f9fafb;
+}
+
+.aiPriorityHigh,
+.aiPriorityMedium,
+.aiPriorityLow {
+    border-radius: 1rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    margin-right: 0.6rem;
+}
+
+.aiPriorityHigh {
+    background: #ffe4e6;
+    color: #dc2626;
+}
+
+.aiPriorityMedium {
+    background: #fff7db;
+    color: #f59e0b;
+}
+
+.aiPriorityLow {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.aiRecCategory {
+    color: #6b7280;
+    font-weight: 800;
+}
+
+.aiRecChipset {
+    background: #fff0db;
+    color: #f05a00;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.55rem;
+    font-weight: 900;
+    font-size: 0.75rem;
+}
+
+.aiRecTitle {
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #020617;
+}
+
+.aiRecDesc {
+    margin-top: 0.4rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.aiRecFooter {
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.aiRecImpact {
+    color: #dc2626;
+    font-weight: 800;
+}
+
+.aiRecOwner {
+    color: #0d9ca6;
+    font-weight: 800;
+}
+
+.aiChatPanel {
+    width: 28rem;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.aiChatHeader {
+    background: #17172d;
+    padding: 1rem;
+}
+
+.aiChatIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
+    background: #129faa;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+}
+
+.aiChatIconText {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.aiChatTitle {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.aiChatSub {
+    color: #cbd5e1;
+    font-size: 0.72rem;
+}
+
+.aiChatBody {
+    min-height: 16rem;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.aiChatPrompt {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.aiSuggestionList {
+    gap: 0.5rem;
+}
+
+.aiSuggestionBtn .sapMBtnInner {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    background: #f3f4f6 !important;
+    border: 1px solid #d9d9d9 !important;
+    border-radius: 0.55rem !important;
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+}
+
+.aiMessages {
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.aiUserMsg,
+.aiBotMsg {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.7rem;
+    max-width: 90%;
+}
+
+.aiUserMsg {
+    background: #e1f6f7;
+    align-self: flex-end;
+}
+
+.aiBotMsg {
+    background: #f3f4f6;
+    align-self: flex-start;
+}
+
+.aiMsgText {
+    color: #111827;
+    font-size: 0.82rem;
+}
+
+.aiChatInputBar {
+    padding: 0.9rem;
+    gap: 0.6rem;
+}
+
+.aiChatInput {
+    flex: 1;
+}
+
+.aiSendBtn .sapMBtnInner {
+    background: #129faa !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 0.55rem !important;
+    font-weight: 900 !important;
+}

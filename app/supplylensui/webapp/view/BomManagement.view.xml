@@ -1,0 +1,227 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.BomManagement"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="bomPage">
+        <VBox class="bomShell">
+
+            <VBox class="bomTitleBlock">
+                <Text text="BOM Management" class="bomPageTitle"/>
+                <Text text="Upload chipset BOM or pull from SAP S/4HANA . Multiple BOM lines per chipset fully supported" class="bomPageSub"/>
+            </VBox>
+
+            <HBox class="bomModeBar">
+
+                <Button
+                    text="Browse BOM"
+                    type="{= ${bom>/selectedMode} === 'BROWSE' ? 'Emphasized' : 'Default' }"
+                    press=".onShowBrowse"
+                    class="bomModeBtn"/>
+
+                <Button
+                    text="Upload CSV/Excel"
+                    type="{= ${bom>/selectedMode} === 'UPLOAD' ? 'Emphasized' : 'Default' }"
+                    press=".onShowUpload"
+                    class="bomModeBtn"/>
+
+                <Button
+                    text="Pull from S/4HANA"
+                    type="{= ${bom>/selectedMode} === 'PULL' ? 'Emphasized' : 'Default' }"
+                    press=".onShowPull"
+                    class="bomModeBtn"/>
+            </HBox>
+
+            <!-- BROWSE MODE -->
+            <!-- BROWSE MODE -->
+            <VBox visible="{= ${bom>/selectedMode} === 'BROWSE' }">
+
+                <HBox class="bomChipRow" items="{bom>/chipsets}">
+                    <VBox
+                        class="{= ${bom>id} === ${bom>/selectedChipsetId} ? 'bomChip bomChipActive' : 'bomChip' }">
+
+                        <Link
+                            text="{bom>name}"
+                            press=".onSelectChipset"
+                            class="bomChipTitle"/>
+
+                        <Text
+                            text="{bom>summary}"
+                            class="bomChipSub"/>
+
+                    </VBox>
+                </HBox>
+
+                <VBox class="bomDetailCard">
+
+                    <HBox alignItems="Center">
+                        <VBox class="bomRiskCircle">
+                            <Text text="{bom>/selectedChipset/score}" class="bomRiskScore"/>
+                        </VBox>
+
+                        <VBox>
+                            <Text text="{bom>/selectedChipset/name}" class="bomDetailTitle"/>
+                            <Text text="{bom>/selectedChipset/description}" class="bomDetailSub"/>
+                        </VBox>
+
+                        <ToolbarSpacer/>
+
+                        <Text text="Active in Ariba SCC" class="bomBadgeBlue"/>
+                        <Text text="BTP Linked" class="bomBadgeGreen"/>
+                    </HBox>
+
+                    <Table items="{bom>/selectedChipset/lines}" class="bomTable">
+                        <columns>
+                            <Column><Text text="Line"/></Column>
+                            <Column><Text text="Material ID"/></Column>
+                            <Column><Text text="Description"/></Column>
+                            <Column><Text text="Tier"/></Column>
+                            <Column><Text text="Node"/></Column>
+                            <Column><Text text="Volume %"/></Column>
+                            <Column><Text text="Supplier"/></Column>
+                            <Column><Text text="Plant"/></Column>
+                            <Column><Text text="Country"/></Column>
+                            <Column><Text text="Score"/></Column>
+                            <Column><Text text="Status"/></Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{bom>line}"/>
+                                    <Link text="{bom>materialId}"/>
+                                    <Text text="{bom>description}" class="bomLineDesc"/>
+                                    <Text text="{bom>tier}" class="bomTier"/>
+                                    <Text text="{bom>node}"/>
+                                    <HBox alignItems="Center">
+                                        <ProgressIndicator
+                                            percentValue="{bom>volume}"
+                                            displayValue="{bom>volumeText}"
+                                            width="4rem"/>
+                                    </HBox>
+                                    <Text text="{bom>supplier}" class="bomSupplier"/>
+                                    <Text text="{bom>plant}"/>
+                                    <Text text="{bom>country}"/>
+                                    <ObjectStatus text="{bom>score}" state="{bom>scoreState}"/>
+                                    <ObjectStatus text="{bom>status}" state="{bom>statusState}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Text text="{bom>/selectedChipset/footer}" class="bomFooterNote"/>
+
+                </VBox>
+
+            </VBox>
+
+            <!-- UPLOAD MODE -->
+            <VBox visible="{= ${bom>/selectedMode} === 'UPLOAD' }" class="bomUploadCard">
+
+                <VBox class="bomSectionTitle">
+                    <Text text="Upload BOM File" class="bomCardTitle"/>
+                    <Text text="CSV or XLSX . Multiple lines per chipset . VOLUME_PCT column enables multi-source" class="bomCardSub"/>
+                </VBox>
+
+                <VBox
+                    class="bomDropBox"
+                    alignItems="Center"
+                    justifyContent="Center">
+
+                    <core:Icon
+                        src="sap-icon://upload"
+                        size="2rem"
+                        class="bomUploadIcon"/>
+
+                    <Title
+                        text="Drag &amp; drop BOM file here"
+                        level="H4"
+                        class="bomDropTitle"/>
+
+                    <Text
+                        text="CSV / Excel (.xlsx) . Multiple lines per chipset supported"
+                        class="bomDropSub"/>
+
+                    <Button
+                        text="Browse BOM"
+                        type="Emphasized"
+                        press=".onSelectFile"/>
+
+                </VBox>
+                <Text text="Required columns:" class="bomRequiredLabel"/>
+
+                <HBox class="bomColumnTags">
+                    <Text text="CHIPSET_ID" class="bomColumnTag"/>
+                    <Text text="LINE" class="bomColumnTag"/>
+                    <Text text="MATERIAL_ID" class="bomColumnTag"/>
+                    <Text text="DESCRIPTION" class="bomColumnTag"/>
+                    <Text text="TIER" class="bomColumnTag"/>
+                    <Text text="NODE" class="bomColumnTag"/>
+                    <Text text="SUPPLIER" class="bomColumnTag"/>
+                    <Text text="PLANT" class="bomColumnTag"/>
+                    <Text text="REGION" class="bomColumnTag"/>
+                    <Text text="VOLUME_PCT" class="bomColumnTag"/>
+                </HBox>
+
+                <Text
+                    class="bomCodeBlock"
+                    text="CHIPSET_ID,LINE,MATERIAL_ID,DESCRIPTION,TIER,NODE,SUPPLIER,PLANT,REGION,VOLUME_PCT&#10;BC-A1,10,BC-DIE-001,7nm Compute Die,foundry,N7,TSMC Fab-18,TSMC Hsinchu,Asia Pacific,100&#10;BC-A1,20,BC-INT-001,CoWoS Silicon Interposer,foundry,CoWoS-S,TSMC CoWoS,TSMC Taichung,Asia Pacific,100&#10;BC-A1,30,BC-SUB-042,8L ABF Substrate,substrate,8L ABF,Unimicron SZ,Unimicron Shenzhen,Asia Pacific,100"/>
+            </VBox>
+
+            <!-- PULL MODE -->
+            <VBox visible="{= ${bom>/selectedMode} === 'PULL' }" class="bomPullCard">
+
+                <VBox class="bomSectionTitle">
+                    <Text text="Pull BOM from SAP S/4HANA" class="bomCardTitle"/>
+                    <Text text="Live via OData API . MM-BOM module . Multi-line BOM fully supported" class="bomCardSub"/>
+                </VBox>
+
+                <HBox class="bomInfoGrid">
+                    <VBox class="bomInfoBox">
+                        <Text text="S/4 System" class="bomInfoLabel"/>
+                        <Text text="PRD-CLNT-100" class="bomInfoValue"/>
+                    </VBox>
+                    <VBox class="bomInfoBox">
+                        <Text text="OData Service" class="bomInfoLabel"/>
+                        <Text text="API_BILL_OF_MATERIAL_SRV" class="bomInfoValue"/>
+                    </VBox>
+                    <VBox class="bomInfoBox">
+                        <Text text="CDS View" class="bomInfoLabel"/>
+                        <Text text="I_BillOfMaterialItem" class="bomInfoValue"/>
+                    </VBox>
+                    <VBox class="bomInfoBox">
+                        <Text text="Auth" class="bomInfoLabel"/>
+                        <Text text="OAuth 2.0 (BTP Destination)" class="bomInfoValue"/>
+                    </VBox>
+                    <VBox class="bomInfoBox">
+                        <Text text="Last Sync" class="bomInfoLabel"/>
+                        <Text text="Today 02:14 UTC" class="bomInfoValue"/>
+                    </VBox>
+                    <VBox class="bomInfoBox">
+                        <Text text="Cadence" class="bomInfoLabel"/>
+                        <Text text="Daily 02:00 + on-demand" class="bomInfoValue"/>
+                    </VBox>
+                </HBox>
+
+                <Text text="Fetch by Chipset Material Number" class="bomFetchLabel"/>
+
+                <HBox>
+                    <Input value="BC-A1" class="bomFetchInput"/>
+                    <Button text="Pull from S/4" class="bomPullBtn"/>
+                </HBox>
+
+                <VBox class="bomAfterPull">
+                    <Text text="What happens after pull:" class="bomAfterTitle"/>
+                    <Text text="1. All BOM lines mapped to Ariba Supplier ANIDs"/>
+                    <Text text="2. SCC key figure subscriptions created per material x supplier"/>
+                    <Text text="3. Volume split (VOLUME_PCT) preserved from S/4 quota arrangement"/>
+                    <Text text="4. Bucket types auto-assigned by KF classification"/>
+                    <Text text="5. BTP risk engine scoring begins T+4h . Dashboard row created automatically"/>
+                </VBox>
+
+            </VBox>
+
+        </VBox>
+    </Page>
+</mvc:View>
