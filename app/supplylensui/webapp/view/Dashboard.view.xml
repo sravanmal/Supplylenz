@@ -109,7 +109,7 @@
                             <Button text="X" type="Transparent" press=".onCloseSyncCenter" class="slSyncCloseBtn"/>
                         </HBox>
 
-                        <ScrollContainer height="calc(100vh - 6rem)" vertical="true">
+                        <ScrollContainer height="calc(100vh - 10rem)" vertical="true">
 
                             <VBox class="slSyncBody">
 

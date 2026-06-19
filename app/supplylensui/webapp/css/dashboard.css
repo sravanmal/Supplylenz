@@ -156,3 +156,237 @@
     }
 }
 
+
+
+/* live sync css */
+
+.slSyncOverlay {
+    position: fixed;
+    top: 5rem;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 9999;
+    align-items: flex-end;
+}
+
+.slSyncPanel {
+    width: 38rem;
+    max-width: 38rem;
+    height: calc(100vh - 5rem);
+    background: #ffffff;
+    box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.18);
+}
+
+
+.slSyncHeader {
+    height: 5rem;
+    padding: 0 1.8rem 0 1.4rem;
+    border-bottom: 3px solid #08a6a6;
+    background: #eefafa;
+    box-sizing: border-box;
+}
+
+.slSyncTitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #020617;
+    margin-bottom: 0.2rem;
+}
+
+.slSyncSub {
+    color: #6b7280;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.slSyncAllBtn {
+    margin-left: 1.5rem;
+    margin-right: 1.2rem;
+}
+.slSyncAllBtn .sapMBtnInner {
+    background: #129faa !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.6rem !important;
+    font-weight: 900 !important;
+    padding: 0 1.2rem !important;
+}
+
+.slSyncCloseBtn .sapMBtnInner {
+    color: #64748b !important;
+    font-weight: 900 !important;
+}
+
+.slSyncBody {
+    padding: 1.4rem;
+}
+
+.slSectionTitleTeal {
+    border-left: 5px solid #08a6a6;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.slSectionTitleBlue {
+    border-left: 5px solid #1f73d1;
+    padding-left: 1rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.slSyncSectionTitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #17172d;
+}
+
+.slSyncSectionSub {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.slAribaTable {
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.slAribaTable .sapMListTblHeaderCell {
+    background: #f3f4f6 !important;
+}
+
+.slAribaTable .sapMListTblCell {
+    padding: 0.75rem 1rem !important;
+    vertical-align: middle !important;
+}
+
+.slSupplierName {
+    font-weight: 900;
+    color: #17172d;
+}
+
+.slSupplierLine {
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+.slLastPublish {
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+
+.slStatusGreen {
+    color: #2e7d32;
+    font-weight: 900;
+}
+
+.slStatusOrange {
+    color: #f05a00;
+    font-weight: 900;
+}
+
+.slStatusRed {
+    color: #dc2626;
+    font-weight: 900;
+}
+
+.slRowWarning {
+    background: #fffbe6 !important;
+}
+
+.slRowStale {
+    background: #ffe8ec !important;
+}
+
+.slSourceList {
+    gap: 1rem;
+}
+
+.slSourceCard {
+    border: 1px solid #dfe3e8;
+    border-radius: 0.9rem;
+    background: #ffffff;
+    padding: 1.2rem;
+    box-sizing: border-box;
+}
+
+.slSourceGood {
+    border-left: 5px solid #2e7d32;
+}
+
+.slSourceWarn {
+    border-left: 5px solid #f05a00;
+    border-color: #ffb27a;
+    background: #fffaf5;
+}
+
+.slSourceTitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #17172d;
+    margin-right: 0.7rem;
+}
+
+.slSourceTag {
+    background: #f3f4f6;
+    color: #737373;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.slSourceDesc {
+    color: #6b7280;
+    margin-top: 0.4rem;
+}
+
+.slSourceMeta {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.slMetaLabel {
+    color: #6b7280;
+}
+
+.slMetaGreen {
+    color: #166534;
+    font-weight: 900;
+}
+
+.slMetaBold {
+    color: #6b7280;
+    font-weight: 900;
+}
+
+.slWarningText {
+    color: #f05a00;
+    font-weight: 900;
+    margin-top: 0.5rem;
+}
+
+.slSyncNowBtn {
+    margin-top: 0.8rem;
+}
+
+.slSyncNowBtn .sapMBtnInner {
+    border: 1px solid #0d63c9 !important;
+    color: #0d63c9 !important;
+    background: #ffffff !important;
+    border-radius: 0.55rem !important;
+    font-weight: 900 !important;
+}
+
+.slInfoBox {
+    background: #dff8fb;
+    color: #087f83;
+    border-left: 4px solid #08a6a6;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    margin-top: 1.4rem;
+    line-height: 1.5;
+}

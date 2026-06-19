@@ -1,0 +1,368 @@
+<mvc:View
+    controllerName="sravan.bristlecone.supplylensui.controller.ChipsetDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="cdPage">
+        <VBox class="cdShell">
+
+            <!-- PAGE HEADER -->
+            <HBox class="cdHeader" alignItems="Center">
+                <Button text="Back" press=".onBack" class="cdBackBtn"/>
+
+                <VBox class="cdTitleBlock">
+                    <Text text="{detail>/chipset/name}" class="cdTitle"/>
+                    <Text text="{detail>/chipset/subTitle}" class="cdSubTitle"/>
+                </VBox>
+
+                <ToolbarSpacer/>
+
+                <Text text="{detail>/chipset/riskBadge}" class="cdRiskBadge"/>
+            </HBox>
+
+            <!-- OEM AVAILABILITY CARD -->
+            <VBox class="cdAvailabilityCard">
+
+                <Text text="OEM CHIPSET AVAILABILITY - {detail>/chipset/name}" class="cdSectionTitle"/>
+
+                <!-- DARK KPI STRIP -->
+                <HBox class="cdDarkKpiRow">
+                    <VBox class="cdDarkKpi">
+                        <Text text="Customer" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/customer}" class="cdDarkKpiValue"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Committed Demand" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/committedDemand}" class="cdDarkKpiValue"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Producible" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/producible}" class="cdDarkKpiValue cdGreen"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Supply Gap" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/supplyGap}" class="cdDarkKpiValue cdRed"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Revenue at Risk" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/revenueAtRisk}" class="cdDarkKpiValue cdPink"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Safety Stock Target" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/safetyStockTarget}" class="cdDarkKpiValue cdBlue"/>
+                    </VBox>
+
+                    <VBox class="cdDarkKpi">
+                        <Text text="Coverage" class="cdDarkKpiLabel"/>
+                        <Text text="{detail>/availability/coverage}" class="cdDarkKpiValue cdOrange"/>
+                    </VBox>
+                </HBox>
+
+                <!-- LEGEND -->
+                <HBox class="cdStockLegend" alignItems="Center">
+                    <Text text="Stock per plant:" class="cdLegendTitle"/>
+                    <Text text="" class="cdLegendBox cdUnrestricted"/>
+                    <Text text="Unrestricted - available to ship immediately" class="cdLegendText"/>
+                    <Text text="" class="cdLegendBox cdQuality"/>
+                    <Text text="Quality Inspection - hold pending QC release" class="cdLegendText"/>
+                    <Text text="" class="cdLegendBox cdBlocked"/>
+                    <Text text="Blocked - damage, return, or compliance hold" class="cdLegendText"/>
+                </HBox>
+
+                <!-- PORTFOLIO TOTAL -->
+                <HBox class="cdPortfolioTotal" alignItems="Center">
+                    <Text text="PORTFOLIO TOTAL" class="cdPortfolioLabel"/>
+                    <ToolbarSpacer/>
+                    <VBox class="cdTotalBox">
+                        <Text text="UNRESTRICTED" class="cdTotalLabel"/>
+                        <Text text="{detail>/portfolio/unrestricted}" class="cdTotalGreen"/>
+                    </VBox>
+                    <VBox class="cdTotalBox">
+                        <Text text="QUALITY" class="cdTotalLabel"/>
+                        <Text text="{detail>/portfolio/quality}" class="cdTotalOrange"/>
+                    </VBox>
+                    <VBox class="cdTotalBox">
+                        <Text text="BLOCKED" class="cdTotalLabel"/>
+                        <Text text="{detail>/portfolio/blocked}" class="cdTotalRed"/>
+                    </VBox>
+                    <VBox class="cdTotalBox">
+                        <Text text="TOTAL STOCK" class="cdTotalLabel"/>
+                        <Text text="{detail>/portfolio/totalStock}" class="cdTotalDark"/>
+                    </VBox>
+                    <VBox class="cdTotalBox">
+                        <Text text="WoS (unrestr.)" class="cdTotalLabel"/>
+                        <Text text="{detail>/portfolio/wos}" class="cdTotalOrange"/>
+                    </VBox>
+                </HBox>
+
+                <!-- STOCK TABLE -->
+                <Table
+                    items="{detail>/plants}"
+                    class="cdPlantTable"
+                    mode="None"
+                    fixedLayout="true">
+
+                    <columns>
+                        <Column width="22%"><Text text="Plant / Location"/></Column>
+                        <Column width="13%"><Text text="Type"/></Column>
+                        <Column width="11%"><Text text="Unrestricted"/></Column>
+                        <Column width="11%"><Text text="Quality Insp."/></Column>
+                        <Column width="10%"><Text text="Blocked"/></Column>
+                        <Column width="10%"><Text text="Total"/></Column>
+                        <Column width="9%"><Text text="WoS"/></Column>
+                        <Column width="8%"><Text text="Status"/></Column>
+                        <Column width="16%"><Text text="Note"/></Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem
+                            type="Active"
+                            press=".onPlantPress"
+                            class="cdPlantRow">
+                            <cells>
+                                <VBox>
+                                    <Text text="{detail>name}" class="cdPlantName"/>
+                                    <Text text="{detail>location}" class="cdPlantSub"/>
+                                </VBox>
+
+                                <Text text="{detail>type}" class="cdTypeBadge"/>
+                                <Text text="{detail>unrestricted}" class="cdStockGreen"/>
+                                <Text text="{detail>quality}" class="cdStockOrange"/>
+                                <Text text="{detail>blocked}" class="cdStockRed"/>
+                                <Text text="{detail>total}" class="cdStockDark"/>
+
+                                <HBox alignItems="Center">
+                                    <ProgressIndicator percentValue="{detail>wosPercent}" displayValue="" width="3rem"/>
+                                    <Text text="{detail>wos}" class="cdStockRed"/>
+                                </HBox>
+
+                                <Text text="{detail>status}" class="cdStatusBadge"/>
+                                <Text text="{detail>note}" class="cdNoteText"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+
+            <!-- KPI CARDS -->
+            <HBox class="cdKpiRow">
+                <VBox class="cdKpiCard">
+                    <Text text="Chipset Risk" class="cdKpiLabel"/>
+                    <Text text="{detail>/summary/chipsetRisk}" class="cdKpiOrange"/>
+                    <Text text="At Risk" class="cdKpiSub"/>
+                    <Link text="Detail &gt;" class="cdSmallLink"/>
+                </VBox>
+
+                <VBox class="cdKpiCard">
+                    <Text text="Foundry Lines" class="cdKpiLabel"/>
+                    <Text text="{detail>/summary/foundryLines}" class="cdKpiDark"/>
+                    <Text text="TSMC + TSMC" class="cdKpiSub"/>
+                </VBox>
+
+                <VBox class="cdKpiCard">
+                    <Text text="Substrate Lines" class="cdKpiLabel"/>
+                    <Text text="{detail>/summary/substrateLines}" class="cdKpiDark"/>
+                    <Text text="Unimicron" class="cdKpiSub"/>
+                </VBox>
+
+                <VBox class="cdKpiCard">
+                    <Text text="Supply Gap" class="cdKpiLabel"/>
+                    <Text text="{detail>/summary/supplyGap}" class="cdKpiRed"/>
+                    <Text text="units" class="cdKpiSub"/>
+                    <Link text="Detail &gt;" class="cdSmallLink"/>
+                </VBox>
+
+                <VBox class="cdKpiCard">
+                    <Text text="Revenue at Risk" class="cdKpiLabel"/>
+                    <Text text="{detail>/summary/revenueAtRisk}" class="cdKpiRed"/>
+                    <Link text="Detail &gt;" class="cdSmallLink"/>
+                </VBox>
+            </HBox>
+
+            <!-- BOM LINES -->
+            <VBox class="cdBomSection">
+                <Text text="BOM Lines - 3 materials . 3 suppliers . click a line to see its key figures" class="cdBomTitle"/>
+
+                <Text text="FOUNDRY - 2 LINES   Multi-source . volume split shown" class="cdBomGroupTitle"/>
+
+                <HBox class="cdBomCards">
+                    <VBox
+                        class="{= ${detail>/selectedBomId} === 'BC-DIE-001' ? 'cdBomLineCard cdBomLineActive' : 'cdBomLineCard' }"
+                        press=".onBomLinePress">
+                        <customData>
+                            <core:CustomData key="bomId" value="BC-DIE-001"/>
+                        </customData>
+
+                        <HBox alignItems="Center">
+                            <VBox class="cdBomScoreCircle">
+                                <Text text="72" class="cdBomScore"/>
+                            </VBox>
+
+                            <VBox>
+                                <Text text="7nm Compute Die" class="cdBomName"/>
+                                <Text text="TSMC Fab-18" class="cdBomSupplier"/>
+                                <Text text="TSMC Hsinchu . Taiwan" class="cdBomSub"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox class="cdBomBottom" alignItems="Center">
+                            <Text text="N7" class="cdNodeTag"/>
+                            <ProgressIndicator percentValue="100" displayValue="" width="4rem"/>
+                            <Text text="100%" class="cdVolumeText"/>
+                            <ToolbarSpacer/>
+                            <Text text="BC-DIE-001" class="cdMaterialId"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox
+                        class="{= ${detail>/selectedBomId} === 'BC-INT-001' ? 'cdBomLineCard cdBomLineActive' : 'cdBomLineCard' }"
+                        press=".onBomLinePress">
+                        <customData>
+                            <core:CustomData key="bomId" value="BC-INT-001"/>
+                        </customData>
+
+                        <HBox alignItems="Center">
+                            <VBox class="cdBomScoreCircle cdWatchCircle">
+                                <Text text="48" class="cdBomScore"/>
+                            </VBox>
+
+                            <VBox>
+                                <Text text="CoWoS Silicon Interposer" class="cdBomName"/>
+                                <Text text="TSMC CoWoS" class="cdBomSupplier"/>
+                                <Text text="TSMC Taichung . Taiwan" class="cdBomSub"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox class="cdBomBottom" alignItems="Center">
+                            <Text text="CoWoS-S" class="cdNodeTag"/>
+                            <ProgressIndicator percentValue="100" displayValue="" width="4rem"/>
+                            <Text text="100%" class="cdVolumeText"/>
+                            <ToolbarSpacer/>
+                            <Text text="BC-INT-001" class="cdMaterialId"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <Text text="SUBSTRATE - 1 LINE" class="cdBomGroupTitle cdSubstrateTitle"/>
+
+                <HBox class="cdBomCards">
+                    <VBox
+                        class="{= ${detail>/selectedBomId} === 'BC-SUB-042' ? 'cdBomLineCard cdBomLineActive' : 'cdBomLineCard' }"
+                        press=".onBomLinePress">
+                        <customData>
+                            <core:CustomData key="bomId" value="BC-SUB-042"/>
+                        </customData>
+
+                        <HBox alignItems="Center">
+                            <VBox class="cdBomScoreCircle">
+                                <Text text="64" class="cdBomScore"/>
+                            </VBox>
+
+                            <VBox>
+                                <Text text="8L ABF Organic Substrate" class="cdBomName"/>
+                                <Text text="Unimicron SZ" class="cdBomSupplier"/>
+                                <Text text="Unimicron Shenzhen . China" class="cdBomSub"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox class="cdBomBottom" alignItems="Center">
+                            <Text text="8L ABF" class="cdSubstrateTag"/>
+                            <ToolbarSpacer/>
+                            <Text text="BC-SUB-042" class="cdMaterialId"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- SELECTED BOM DETAILS -->
+            <VBox class="cdSelectedBomCard">
+                <HBox class="cdSelectedHeader" alignItems="Center">
+                    <Text text="{detail>/selectedBom/node}" class="cdSelectedNode"/>
+                    <VBox>
+                        <Text text="{detail>/selectedBom/name}" class="cdSelectedTitle"/>
+                        <Text text="{detail>/selectedBom/supplierText}" class="cdSelectedSub"/>
+                    </VBox>
+
+                    <ToolbarSpacer/>
+
+                    <VBox class="cdSelectedScoreCircle">
+                        <Text text="{detail>/selectedBom/score}" class="cdSelectedScore"/>
+                    </VBox>
+
+                    <VBox>
+                        <Text text="{detail>/selectedBom/line}" class="cdSelectedMeta"/>
+                        <Text text="{detail>/selectedBom/volume}" class="cdSelectedMeta"/>
+                    </VBox>
+                </HBox>
+
+                <HBox class="cdFeedRow">
+                    <VBox class="cdFeedBox">
+                        <Text text="● Ariba SCC - Supplier Key Figures" class="cdFeedTitle"/>
+                        <Text text="Last update: Today 04:12 UTC" class="cdFeedSub"/>
+                    </VBox>
+
+                    <VBox class="cdFeedBox">
+                        <Text text="● SAP S/4HANA - Inventory + Demand" class="cdFeedTitle"/>
+                        <Text text="Last sync: Today 02:00 UTC . Scheduled: Daily 02:00 UTC" class="cdFeedSub"/>
+                    </VBox>
+
+                    <Button text="Sync Now" class="cdSyncBtn"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+
+        <!-- RIGHT SIDE PANEL -->
+        <VBox class="cdSidePanel" visible="{detail>/showSidePanel}">
+            <HBox class="cdSideHeader" alignItems="Center">
+                <Text text="{detail>/selectedPlant/location}" class="cdSideLocation"/>
+                <ToolbarSpacer/>
+                <Button text="X" type="Transparent" press=".onCloseSidePanel"/>
+            </HBox>
+
+            <VBox class="cdCriticalBox">
+                <HBox alignItems="Center">
+                    <VBox class="cdCriticalCircle">
+                        <Text text="80" class="cdCriticalScore"/>
+                    </VBox>
+
+                    <VBox>
+                        <Text text="0 units" class="cdCriticalUnits"/>
+                        <Text text="Critical" class="cdCriticalText"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <Text text="Weeks of Supply vs 4-wk target" class="cdSideLabel"/>
+
+            <ProgressIndicator
+                percentValue="{detail>/selectedPlant/wosPercent}"
+                displayValue=""
+                width="100%"
+                class="cdSideProgress"/>
+
+            <HBox>
+                <Text text="{detail>/selectedPlant/wos}" class="cdSideRed"/>
+                <ToolbarSpacer/>
+                <Text text="4 wks target" class="cdSideMuted"/>
+            </HBox>
+
+            <Text text="Recommended Actions" class="cdSideLabel cdActionTitle"/>
+
+            <VBox items="{detail>/actions}">
+                <Text text="{detail>text}" class="cdActionItem"/>
+            </VBox>
+
+            <Text
+                text="OEM chipset stock. Updated daily via WMS. Safety stock = 4-week rolling demand average."
+                class="cdSideInfo"/>
+        </VBox>
+
+    </Page>
+</mvc:View>

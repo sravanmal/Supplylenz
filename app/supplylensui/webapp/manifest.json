@@ -62,7 +62,9 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "sravan.bristlecone.supplylensui.i18n.i18n",
-          "supportedLocales": [""],
+          "supportedLocales": [
+            ""
+          ],
           "fallbackLocale": ""
         }
       },
@@ -95,6 +97,9 @@
         },
         {
           "uri": "css/ai-recommendations.css"
+        },
+        {
+          "uri": "css/chipsetdetail.css"
         }
       ]
     },
@@ -134,6 +139,11 @@
         {
           "pattern": "dashboard/ai",
           "name": "AIRecommendations",
+          "target": "Dashboard"
+        },
+        {
+          "pattern": "dashboard/chipset/{chipsetId}",
+          "name": "ChipsetDetail",
           "target": "Dashboard"
         }
       ],

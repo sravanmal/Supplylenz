@@ -362,3 +362,139 @@
     color: #f05a00;
     font-weight: 900;
 }
+
+.slFilterWrapper {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+}
+
+.slFilterTop {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.slAdvancedFilters {
+    padding: 0.9rem 1rem 1rem 1rem;
+}
+
+.slAdvancedRow {
+    gap: 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+.slFilterGroup {
+    margin-right: 1rem;
+}
+
+.slGroupLabel {
+    color: #6b7280;
+    font-size: 0.72rem;
+    font-weight: 900;
+    margin-bottom: 0.4rem;
+}
+
+.slFilterPillActive .sapMBtnInner,
+.slFilterChipActive .sapMBtnInner {
+    background: #0d9fa6 !important;
+    border: 1px solid #0d9fa6 !important;
+    color: #ffffff !important;
+    border-radius: 1.2rem !important;
+    font-weight: 900 !important;
+}
+
+.slFilterChipPurple .sapMBtnInner {
+    background: #6b21a8 !important;
+    border: 1px solid #6b21a8 !important;
+    color: #ffffff !important;
+    border-radius: 1.2rem !important;
+    font-weight: 900 !important;
+}
+
+.slFilterChipOrange .sapMBtnInner {
+    background: #f05a00 !important;
+    border: 1px solid #f05a00 !important;
+    color: #ffffff !important;
+    border-radius: 1.2rem !important;
+    font-weight: 900 !important;
+}
+
+.slFilterChipGreen .sapMBtnInner {
+    background: #15803d !important;
+    border: 1px solid #15803d !important;
+    color: #ffffff !important;
+    border-radius: 1.2rem !important;
+    font-weight: 900 !important;
+}
+
+.slFilterChip,
+.slFilterChipActive,
+.slFilterChipPurple,
+.slFilterChipOrange,
+.slFilterChipGreen {
+    margin-right: 0.45rem;
+}
+
+.slFilterChip .sapMBtnInner,
+.slFilterChipActive .sapMBtnInner,
+.slFilterChipPurple .sapMBtnInner,
+.slFilterChipOrange .sapMBtnInner,
+.slFilterChipGreen .sapMBtnInner {
+    height: 1.8rem !important;
+    min-height: 1.8rem !important;
+    padding: 0 0.8rem !important;
+}
+
+.slClearBtn .sapMBtnInner {
+    height: 2rem !important;
+    background: #ffffff !important;
+    border: 1px solid #d8dde6 !important;
+    color: #6b7280 !important;
+    border-radius: 0.7rem !important;
+}
+
+.slNoDataBox {
+    height: 10rem;
+    background: #ffffff;
+    border-radius: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.slNoDataText {
+    color: #6b7280;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.slNoDataBtn .sapMBtnInner {
+    background: #129faa !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.6rem !important;
+    font-weight: 900 !important;
+}
+
+.slClickableRow {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.slClickableRow .sapMLIBContent {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.slClickableRow:hover .slHeatmapRow {
+    background: #f8fafc !important;
+    cursor: pointer;
+}
+
+.slClickableRow:hover .slChipsetCol {
+    background: #f8fafc !important;
+}
+
+.slFilterBar {
+    display: none;
+}

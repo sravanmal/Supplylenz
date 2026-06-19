@@ -1,10 +1,9 @@
 /* ===================================================== */
-/* CHIPSET RISK PAGE */
+/* PAGE BACKGROUND */
 /* ===================================================== */
 
 .slChipsetPage,
 .slChipsetShell {
-    padding: 1.5rem 2rem 2rem 2rem;
     background: #f7f9fb !important;
 }
 
@@ -17,7 +16,9 @@
     box-sizing: border-box;
 }
 
+/* ===================================================== */
 /* PAGE HEADER */
+/* ===================================================== */
 
 .slChipsetHeader {
     width: 100%;
@@ -41,12 +42,15 @@
     margin-top: 0.25rem;
 }
 
+/* ===================================================== */
+/* HEATMAP / AI SNAPSHOT TOGGLE */
+/* ===================================================== */
+
 .slViewToggle {
     background: #f3f4f6;
     border-radius: 0.9rem;
     padding: 0.25rem;
     gap: 0.25rem;
-    margin-left: auto;
 }
 
 .slToggleBtn .sapMBtnInner {
@@ -66,20 +70,26 @@
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12) !important;
 }
 
-/* FILTER BAR */
+/* ===================================================== */
+/* FILTER AREA */
+/* ===================================================== */
 
-.slFilterBar {
+.slFilterWrapper {
     background: #ffffff;
     border: 1px solid #dfe3e8;
     border-radius: 1rem;
-    padding: 0.8rem 1rem;
     margin-bottom: 1.25rem;
+    overflow: hidden;
+}
+
+.slFilterTop {
+    padding: 0.8rem 1rem;
 }
 
 .slFilterLabel,
 .slSortLabel {
     font-size: 0.82rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #6b7280;
     margin-right: 0.8rem;
 }
@@ -91,16 +101,12 @@
 .slFilterPill .sapMBtnInner {
     height: 2rem !important;
     min-height: 2rem !important;
-
     background: #ffffff !important;
     border: 1px solid #d8dde6 !important;
-
     border-radius: 1.2rem !important;
-
     color: #475569 !important;
     font-size: 0.82rem !important;
-    font-weight: 500 !important;
-
+    font-weight: 600 !important;
     padding: 0 0.9rem !important;
 }
 
@@ -113,23 +119,103 @@
     margin-right: 0.7rem;
 }
 
-.slSortSelect .sapMSlt {
+.slFiltersBtn .sapMBtnInner,
+.slClearBtn .sapMBtnInner {
     height: 2rem !important;
-}
-
-.slFiltersBtn .sapMBtnInner {
-    height: 2rem !important;
-
     background: #ffffff !important;
     border: 1px solid #d8dde6 !important;
-
     border-radius: 0.7rem !important;
-
     color: #475569 !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
 }
 
-/* KPI */
+/* ===================================================== */
+/* ADVANCED FILTERS */
+/* ===================================================== */
+
+.slAdvancedFilters {
+    padding: 0.9rem 1rem 1rem 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.slAdvancedRow {
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.slFilterGroup {
+    gap: 0.35rem;
+}
+
+.slGroupLabel {
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.slFilterChip,
+.slFilterChipActive,
+.slFilterChipPurple,
+.slFilterChipOrange,
+.slFilterChipRed,
+.slFilterChipGreen {
+    margin-right: 0.4rem;
+}
+
+.slFilterChip .sapMBtnInner,
+.slFilterChipActive .sapMBtnInner,
+.slFilterChipPurple .sapMBtnInner,
+.slFilterChipOrange .sapMBtnInner,
+.slFilterChipRed .sapMBtnInner,
+.slFilterChipGreen .sapMBtnInner {
+    height: 1.75rem !important;
+    min-height: 1.75rem !important;
+    border-radius: 1rem !important;
+    padding: 0 0.75rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+}
+
+.slFilterChip .sapMBtnInner {
+    background: #ffffff !important;
+    border: 1px solid #dfe3e8 !important;
+    color: #4b5563 !important;
+}
+
+.slFilterChipActive .sapMBtnInner {
+    background: #129faa !important;
+    border: 1px solid #129faa !important;
+    color: #ffffff !important;
+}
+
+.slFilterChipPurple .sapMBtnInner {
+    background: #6b21a8 !important;
+    border: 1px solid #6b21a8 !important;
+    color: #ffffff !important;
+}
+
+.slFilterChipOrange .sapMBtnInner {
+    background: #f05a00 !important;
+    border: 1px solid #f05a00 !important;
+    color: #ffffff !important;
+}
+
+.slFilterChipRed .sapMBtnInner {
+    background: #dc2626 !important;
+    border: 1px solid #dc2626 !important;
+    color: #ffffff !important;
+}
+
+.slFilterChipGreen .sapMBtnInner {
+    background: #15803d !important;
+    border: 1px solid #15803d !important;
+    color: #ffffff !important;
+}
+
+/* ===================================================== */
+/* KPI CARDS */
+/* ===================================================== */
 
 .slKpiRow {
     gap: 1rem;
@@ -175,17 +261,16 @@
     color: #c91f2e !important;
 }
 
-.slRiskGray {
-    color: #6b7280 !important;
-}
-
 .slRiskBlue {
     color: #0057c2 !important;
 }
 
-/* HEATMAP */
+/* ===================================================== */
+/* HEATMAP TABLE */
+/* ===================================================== */
 
 .slHeatmapCard {
+    width: 100%;
     background: #ffffff;
     border: 1px solid #dfe3e8;
     border-radius: 0.9rem;
@@ -194,67 +279,123 @@
     box-sizing: border-box;
 }
 
+/* Header and row use the SAME 29/29/29/13 widths */
+.slHeatmapHead,
+.slHeatmapRow {
+    display: flex !important;
+    width: 100% !important;
+}
+
 .slHeatmapHead {
     height: 2.6rem;
-    align-items: center;
+}
+
+.slHeadChipset,
+.slChipsetCol {
+    width: 29% !important;
+    flex: 0 0 29% !important;
+}
+
+.slHeadFoundry,
+.slFoundryCol {
+    width: 29% !important;
+    flex: 0 0 29% !important;
+}
+
+.slHeadSubstrate,
+.slSubstrateCol {
+    width: 29% !important;
+    flex: 0 0 29% !important;
+}
+
+.slHeadComposite,
+.slCompositeCol {
+    width: 13% !important;
+    flex: 0 0 13% !important;
+}
+
+/* Table header cells */
+.slHeadChipset,
+.slHeadFoundry,
+.slHeadSubstrate,
+.slHeadComposite {
+    height: 2.6rem;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+    font-size: 0.82rem;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .slHeadChipset {
-    width: 29%;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #6b7280;
+    justify-content: flex-start !important;
     padding-left: 1rem;
+    background: #ffffff;
+}
+
+.slHeadChipset .sapMText {
+    color: #6b7280 !important;
 }
 
 .slHeadFoundry {
-    width: 29%;
-    height: 2.6rem;
-    line-height: 2.6rem;
-    text-align: center;
     background: #e5f6f7;
-    color: #007c80;
-    font-size: 0.82rem;
-    font-weight: 900;
+}
+
+.slHeadFoundry .sapMText {
+    color: #007c80 !important;
 }
 
 .slHeadSubstrate {
-    width: 29%;
-    height: 2.6rem;
-    line-height: 2.6rem;
-    text-align: center;
     background: #f2e6f4;
-    color: #6b21a8;
-    font-size: 0.82rem;
-    font-weight: 900;
+}
+
+.slHeadSubstrate .sapMText {
+    color: #6b21a8 !important;
 }
 
 .slHeadComposite {
-    width: 13%;
-    height: 2.6rem;
-    line-height: 2.6rem;
-    text-align: center;
     background: #14152a;
-    color: #ffffff;
-    font-size: 0.82rem;
-    font-weight: 900;
 }
 
+.slHeadComposite .sapMText {
+    color: #ffffff !important;
+}
+
+/* Clickable row wrapper */
+.slHeatmapListItem {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.slHeatmapListItem .sapMLIBContent {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Actual heatmap row */
 .slHeatmapRow {
     min-height: 8.8rem;
     border: 1px solid #e5e7eb;
     border-bottom: none;
+    cursor: pointer;
 }
 
+.slHeatmapRow:hover {
+    background: #f8fafc !important;
+}
+
+/* Body columns */
 .slChipsetCol {
-    width: 29%;
     background: #ffffff;
     padding: 2.4rem 1rem 1rem 1rem;
     box-sizing: border-box;
 }
 
 .slFoundryCol {
-    width: 29%;
     background: #eefafa;
     padding: 0.8rem;
     gap: 0.55rem;
@@ -262,7 +403,6 @@
 }
 
 .slSubstrateCol {
-    width: 29%;
     background: #fbf5ff;
     padding: 0.8rem;
     gap: 0.55rem;
@@ -270,11 +410,14 @@
 }
 
 .slCompositeCol {
-    width: 13%;
     background: #fff3dd;
     align-items: center;
     justify-content: center;
 }
+
+/* ===================================================== */
+/* CHIPSET TEXT */
+/* ===================================================== */
 
 .slChipName {
     font-size: 1.05rem;
@@ -313,8 +456,11 @@
 .slDrillLink {
     font-size: 0.72rem;
     color: #008c94 !important;
-    text-decoration: none !important;
 }
+
+/* ===================================================== */
+/* BOM LINE CARD */
+/* ===================================================== */
 
 .slLineCard {
     min-height: 3.6rem;
@@ -359,6 +505,10 @@
     color: #6b7280;
 }
 
+/* ===================================================== */
+/* COMPOSITE */
+/* ===================================================== */
+
 .slCompositeScore {
     font-size: 2rem;
     font-weight: 900;
@@ -377,7 +527,9 @@
     margin-top: 0.3rem;
 }
 
+/* ===================================================== */
 /* LEGEND */
+/* ===================================================== */
 
 .slHeatmapLegend {
     padding: 0.75rem 0;
@@ -423,7 +575,36 @@
     margin-left: 0.8rem;
 }
 
-/* INSIGHT */
+/* ===================================================== */
+/* NO DATA */
+/* ===================================================== */
+
+.slNoDataBox {
+    min-height: 11rem;
+    background: #ffffff;
+    border-radius: 0.9rem;
+    border: 1px solid #e5e7eb;
+    margin-top: 1rem;
+}
+
+.slNoDataText {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.slNoDataBtn .sapMBtnInner {
+    background: #129faa !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 0.6rem !important;
+    font-weight: 900 !important;
+}
+
+/* ===================================================== */
+/* INSIGHT BANNER */
+/* ===================================================== */
 
 .slInsightBanner {
     margin-top: 1rem;
@@ -444,7 +625,9 @@
     color: #087f83;
 }
 
+/* ===================================================== */
 /* AI SNAPSHOT */
+/* ===================================================== */
 
 .slAiSnapshotBox {
     min-height: 25rem;

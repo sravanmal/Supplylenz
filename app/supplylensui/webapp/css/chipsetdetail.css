@@ -1,0 +1,538 @@
+.cdPage,
+.cdShell {
+    background: #f7f9fb !important;
+}
+
+.cdPage .sapMPageEnableScrolling {
+    background: #f7f9fb !important;
+}
+
+.cdShell {
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+.cdHeader {
+    margin-bottom: 1.2rem;
+}
+
+.cdBackBtn {
+    margin-right: 1rem;
+}
+
+.cdTitleBlock {
+    border-left: 5px solid #2e7d32;
+    padding-left: 1rem;
+}
+
+.cdTitle {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #111827;
+}
+
+.cdSubTitle {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.cdRiskBadge {
+    background: #fff0db;
+    color: #f05a00;
+    border-radius: 1rem;
+    padding: 0.35rem 0.8rem;
+    font-weight: 900;
+}
+
+/* Availability */
+
+.cdAvailabilityCard {
+    background: #ffffff;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    border: 1px solid #dfe3e8;
+}
+
+.cdDarkTitle {
+    background: #15172d;
+    color: #78f6ff;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: 1rem 1.3rem 0.4rem 1.3rem;
+}
+
+.cdDarkKpiRow {
+    background: #15172d;
+    padding: 0.8rem 1.3rem 1.2rem 1.3rem;
+    gap: 1rem;
+}
+
+.cdDarkKpi {
+    background: #292b42;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-width: 8rem;
+}
+
+.cdDarkKpiLabel {
+    color: #9ca3af;
+    font-size: 0.72rem;
+}
+
+.cdDarkKpiValue,
+.cdDarkKpiValueGreen,
+.cdDarkKpiValueRed,
+.cdDarkKpiValueBlue,
+.cdDarkKpiValueOrange {
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.cdDarkKpiValue {
+    color: #ffffff;
+}
+
+.cdDarkKpiValueGreen {
+    color: #4ade80;
+}
+
+.cdDarkKpiValueRed {
+    color: #fca5a5;
+}
+
+.cdDarkKpiValueBlue {
+    color: #93c5fd;
+}
+
+.cdDarkKpiValueOrange {
+    color: #fb923c;
+}
+
+/* Legend */
+
+.cdLegend {
+    background: #f3f4f6;
+    padding: 0.7rem 1.3rem;
+    gap: 0.45rem;
+}
+
+.cdLegendTitle {
+    font-weight: 800;
+    margin-right: 0.8rem;
+}
+
+.cdLegendText {
+    color: #6b7280;
+    font-size: 0.78rem;
+    margin-right: 1rem;
+}
+
+.cdLegendBoxGreen,
+.cdLegendBoxOrange,
+.cdLegendBoxRed {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 0.15rem;
+}
+
+.cdLegendBoxGreen {
+    background: #008c6b;
+}
+
+.cdLegendBoxOrange {
+    background: #c76b00;
+}
+
+.cdLegendBoxRed {
+    background: #dc2626;
+}
+
+/* Portfolio Total */
+
+.cdTotalRow {
+    background: #eaf8ff;
+    border-bottom: 3px solid #08a6a6;
+    padding: 0.8rem 1.3rem;
+}
+
+.cdTotalTitle {
+    font-weight: 900;
+    color: #008c94;
+}
+
+.cdTotalBox {
+    min-width: 9rem;
+    align-items: center;
+}
+
+.cdTotalLabel {
+    color: #6b7280;
+    font-size: 0.72rem;
+}
+
+.cdGreenValue,
+.cdOrangeValue,
+.cdRedValue,
+.cdDarkValue {
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.cdGreenValue {
+    color: #008c6b;
+}
+
+.cdOrangeValue {
+    color: #c76b00;
+}
+
+.cdRedValue {
+    color: #dc2626;
+}
+
+.cdDarkValue {
+    color: #111827;
+}
+
+/* Plant Table */
+
+.cdPlantTable .sapMListTblHeaderCell {
+    background: #f3f4f6 !important;
+    font-weight: 900 !important;
+}
+
+.cdPlantTable .sapMListTblCell {
+    padding: 0.85rem 1rem !important;
+    vertical-align: middle !important;
+}
+
+.cdPlantRow {
+    cursor: pointer;
+    border-left: 4px solid #dc2626;
+}
+
+.cdPlantRow:hover {
+    background: #fff7f7 !important;
+}
+
+.cdPlantName {
+    font-weight: 900;
+    color: #020617;
+}
+
+.cdPlantLocation,
+.cdNoteText {
+    color: #6b7280;
+    font-size: 0.78rem;
+}
+
+.cdTypeBadge,
+.cdCriticalBadge {
+    border-radius: 1rem;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.cdTypeBadge {
+    background: #eef2f7;
+    color: #4b5563;
+}
+
+.cdCriticalBadge {
+    background: #ffe4e6;
+    color: #dc2626;
+}
+
+.cdGreenValueSmall,
+.cdOrangeValueSmall,
+.cdRedValueSmall,
+.cdDarkValueSmall {
+    font-weight: 900;
+}
+
+.cdGreenValueSmall {
+    color: #008c6b;
+}
+
+.cdOrangeValueSmall {
+    color: #c76b00;
+}
+
+.cdRedValueSmall {
+    color: #dc2626;
+}
+
+.cdDarkValueSmall {
+    color: #020617;
+}
+
+.cdWosDot {
+    width: 0.55rem;
+    height: 0.55rem;
+    background: #dc2626;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+}
+
+/* KPI Cards */
+
+.cdKpiRow {
+    gap: 1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.cdKpiCard {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+}
+
+.cdKpiLabel {
+    color: #6b7280;
+    font-size: 0.78rem;
+}
+
+.cdKpiOrange,
+.cdKpiRed,
+.cdKpiDark {
+    font-size: 1.55rem;
+    font-weight: 900;
+}
+
+.cdKpiOrange {
+    color: #f05a00;
+}
+
+.cdKpiRed {
+    color: #dc2626;
+}
+
+.cdKpiDark {
+    color: #020617;
+}
+
+.cdKpiSub {
+    color: #4b5563;
+    font-size: 0.78rem;
+}
+
+.cdLink {
+    color: #008c94 !important;
+    font-size: 0.78rem;
+}
+
+/* BOM */
+
+.cdBomSection {
+    margin-top: 0.5rem;
+}
+
+.cdSectionTitle {
+    border-left: 5px solid #08a6a6;
+    padding-left: 0.8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.cdFoundryTitle {
+    color: #008c94;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.cdSubstrateTitle {
+    color: #6b21a8;
+    font-weight: 900;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.cdBomRow {
+    gap: 1rem;
+}
+
+.cdBomCard {
+    width: 30rem;
+    min-height: 5.2rem;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.cdBomCardActive {
+    background: #e5fafa;
+    border: 2px solid #08a6a6;
+}
+
+.cdBomScoreCircle {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 3px solid #f05a00;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.cdBomScore {
+    color: #f05a00;
+    font-weight: 900;
+}
+
+.cdBomName {
+    font-weight: 900;
+    color: #020617;
+}
+
+.cdBomSub,
+.cdBomMeta,
+.cdBomMat {
+    color: #6b7280;
+    font-size: 0.75rem;
+}
+
+.cdSmallBlueTag,
+.cdSmallPurpleTag {
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    margin-top: 0.4rem;
+}
+
+.cdSmallBlueTag {
+    background: #dff8fb;
+    color: #008c94;
+}
+
+.cdSmallPurpleTag {
+    background: #f4dffb;
+    color: #7e22ce;
+}
+
+/* Side Panel */
+
+.cdOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    align-items: flex-end;
+}
+
+.cdSidePanel {
+    width: 30rem;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.18);
+}
+
+.cdSideHeader {
+    height: 4.5rem;
+    padding: 0 1.4rem;
+    border-bottom: 3px solid #dc2626;
+    background: #fff1f2;
+}
+
+.cdSideLocation {
+    color: #6b7280;
+    font-weight: 700;
+}
+
+.cdCriticalBox {
+    margin: 1.2rem;
+    background: #ffe4e6;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
+.cdSideScoreCircle {
+    width: 4.2rem;
+    height: 4.2rem;
+    border: 3px solid #dc2626;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.cdSideScore {
+    color: #dc2626;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.cdSideUnits {
+    color: #dc2626;
+    font-size: 1.7rem;
+    font-weight: 900;
+}
+
+.cdSideCritical {
+    color: #dc2626;
+    font-weight: 900;
+}
+
+.cdSideLabel {
+    margin: 1rem 1.2rem 0.5rem 1.2rem;
+    font-weight: 900;
+    color: #6b7280;
+}
+
+.cdProgressTrack {
+    margin: 0 1.2rem;
+    height: 0.7rem;
+    background: #f3f4f6;
+    border-radius: 1rem;
+}
+
+.cdProgressFill {
+    height: 0.7rem;
+    background: #dc2626;
+    border-radius: 1rem;
+}
+
+.cdSideWos {
+    margin-left: 1.2rem;
+    color: #dc2626;
+    font-weight: 900;
+}
+
+.cdSideTarget {
+    margin-right: 1.2rem;
+    color: #6b7280;
+}
+
+.cdActionTitle {
+    margin-top: 1.4rem;
+}
+
+.cdActionBox {
+    margin: 0.45rem 1.2rem;
+    background: #ffe4e6;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.9rem;
+    color: #111827;
+}
+
+.cdInfoBox {
+    margin: 1.2rem;
+    background: #dff8fb;
+    border-left: 4px solid #08a6a6;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    color: #087f83;
+    line-height: 1.4;
+}

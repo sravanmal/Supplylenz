@@ -7,11 +7,14 @@
     <Page showHeader="false" class="crPage">
         <VBox class="crShell">
 
+        <!-- title -->
+
             <VBox class="crTitleBlock">
                 <Text text="Component Risk" class="crPageTitle"/>
                 <Text text="Risk per material / component across all chipsets . Shared component concentration visible" class="crPageSub"/>
             </VBox>
 
+        <!-- KPIs    -->
             <HBox class="crKpiRow">
                 <VBox class="crKpiCard">
                     <Text text="Total Components" class="crKpiLabel"/>
@@ -44,6 +47,7 @@
                 </VBox>
             </HBox>
 
+            <!-- Filters -->
             <HBox class="crFilterBar" alignItems="Center">
                 <Text text="Tier:" class="crFilterLabel"/>
 
@@ -65,6 +69,7 @@
                 </Select>
             </HBox>
 
+        <!-- Main Content -->
             <HBox class="crMainContent">
 
                 <Table

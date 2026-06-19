@@ -1,7 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/mvc/XMLView"
-], function (Controller, XMLView) {
+    "sap/ui/core/mvc/XMLView",
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast"
+], function (Controller, XMLView, JSONModel, MessageToast) {
     "use strict";
 
     return Controller.extend("sravan.bristlecone.supplylensui.controller.Dashboard", {
@@ -13,14 +15,29 @@ sap.ui.define([
             oRouter.getRoute("BomManagement").attachPatternMatched(this._showBomManagement, this);
             oRouter.getRoute("ComponentRisk").attachPatternMatched(this._showComponentRisk, this);
             oRouter.getRoute("AIRecommendations").attachPatternMatched(this._showAIRecommendations, this);
+            oRouter.getRoute("ChipsetDetail").attachPatternMatched(this._showChipsetDetail, this);
 
+            this._initDashboardModel();
             this._loadFromCurrentHash();
+        },
+
+        _initDashboardModel: function () {
+            var oData = {
+                syncPanelVisible: false,
+                aribaFeeds: [],
+                sapSources: []
+            };
+
+            this.getView().setModel(new JSONModel(oData), "dashboard");
         },
 
         _loadFromCurrentHash: function () {
             var sHash = window.location.hash || "";
 
-            if (sHash.indexOf("dashboard/bom") > -1) {
+            if (sHash.indexOf("dashboard/chipset/") > -1) {
+                var sChipsetId = sHash.split("dashboard/chipset/")[1];
+                this._showChipsetDetail(null, sChipsetId);
+            } else if (sHash.indexOf("dashboard/bom") > -1) {
                 this._showBomManagement();
             } else if (sHash.indexOf("dashboard/component") > -1) {
                 this._showComponentRisk();
@@ -51,7 +68,21 @@ sap.ui.define([
             this._loadInnerView("AIRecommendations");
         },
 
-        _loadInnerView: function (sViewName) {
+        _showChipsetDetail: function (oEvent, sFallbackChipsetId) {
+            var sChipsetId = sFallbackChipsetId;
+
+            if (oEvent) {
+                sChipsetId = oEvent.getParameter("arguments").chipsetId;
+            }
+
+            this._setActiveTab("tabChipset");
+
+            this._loadInnerView("ChipsetDetail", {
+                chipsetId: sChipsetId || "BC-A1"
+            });
+        },
+
+        _loadInnerView: function (sViewName, oViewData) {
             var oApp = this.byId("dashboardApp");
 
             if (!oApp) {
@@ -63,15 +94,25 @@ sap.ui.define([
             var oExistingPage = sap.ui.getCore().byId(sViewId);
 
             if (oExistingPage) {
+                if (oExistingPage.getController().applyRouteArguments) {
+                    oExistingPage.getController().applyRouteArguments(oViewData || {});
+                }
+
                 oApp.to(oExistingPage);
                 return;
             }
 
             XMLView.create({
                 id: sViewId,
-                viewName: "sravan.bristlecone.supplylensui.view." + sViewName
+                viewName: "sravan.bristlecone.supplylensui.view." + sViewName,
+                viewData: oViewData || {}
             }).then(function (oView) {
                 oApp.addPage(oView);
+
+                if (oView.getController().applyRouteArguments) {
+                    oView.getController().applyRouteArguments(oViewData || {});
+                }
+
                 oApp.to(oView);
             });
         },
@@ -100,6 +141,22 @@ sap.ui.define([
 
         onNavAi: function () {
             this.getOwnerComponent().getRouter().navTo("AIRecommendations");
+        },
+
+        onOpenSyncCenter: function () {
+            this.getView().getModel("dashboard").setProperty("/syncPanelVisible", true);
+        },
+
+        onCloseSyncCenter: function () {
+            this.getView().getModel("dashboard").setProperty("/syncPanelVisible", false);
+        },
+
+        onSyncAllNow: function () {
+            MessageToast.show("Sync started for all feeds");
+        },
+
+        onSyncNow: function () {
+            MessageToast.show("Sync started");
         }
 
     });

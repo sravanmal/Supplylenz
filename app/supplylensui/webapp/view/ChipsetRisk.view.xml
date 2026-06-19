@@ -2,16 +2,17 @@
     controllerName="sravan.bristlecone.supplylensui.controller.ChipsetRisk"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
 
     <Page showHeader="false" class="slChipsetPage">
         <VBox class="slChipsetShell">
 
-            <!-- PAGE TITLE -->
+            <!-- PAGE HEADER -->
             <HBox class="slChipsetHeader" alignItems="Center">
                 <VBox class="slPageTitleBlock">
                     <Text text="Chipset Risk" class="slPageTitle"/>
-                    <Text text="All BOM lines with trading partners . Click any row to drill in" class="slPageSubTitle"/>
+                    <Text text="{chipset>/headerSubText}" class="slPageSubTitle"/>
                 </VBox>
 
                 <ToolbarSpacer/>
@@ -29,32 +30,92 @@
                 </HBox>
             </HBox>
 
-            <!-- HEATMAP CONTENT -->
+            <!-- HEATMAP VIEW -->
             <VBox visible="{= ${chipset>/selectedView} === 'HEATMAP' }">
 
                 <!-- FILTER BAR -->
-                <HBox class="slFilterBar" alignItems="Center">
+                <VBox class="slFilterWrapper">
 
-                    <Text text="Quick filter:" class="slFilterLabel"/>
+                    <HBox class="slFilterTop" alignItems="Center">
+                        <Text text="Quick filter:" class="slFilterLabel"/>
 
-                    <Button text="! Needs Attention" class="slFilterPill"/>
-                    <Button text="* My Watchlist" class="slFilterPill"/>
-                    <Button text="! Single-Source" class="slFilterPill"/>
+                        <Button text="! Needs Attention" press=".onQuickNeedsAttention" class="slFilterPill"/>
+                        <Button text="* My Watchlist" press=".onQuickWatchlist" class="slFilterPill"/>
+                        <Button text="! Single-Source" press=".onQuickSingleSource" class="slFilterPill"/>
 
-                    <ToolbarSpacer/>
+                        <ToolbarSpacer/>
 
-                    <Text text="Sort:" class="slSortLabel"/>
+                        <Text text="Sort:" class="slSortLabel"/>
 
-                    <Select class="slSortSelect">
-                        <core:Item key="risk" text="Risk Score (high first)"/>
-                        <core:Item key="revenue" text="Revenue at Risk"/>
-                        <core:Item key="gap" text="Supply Gap (worst first)"/>
-                        <core:Item key="name" text="Name A-Z"/>
-                    </Select>
+                        <Select selectedKey="{chipset>/sortKey}" change=".onSortChange" class="slSortSelect">
+                            <core:Item key="risk" text="Risk Score (high first)"/>
+                            <core:Item key="revenue" text="Revenue at Risk"/>
+                            <core:Item key="name" text="Name A-Z"/>
+                        </Select>
 
-                    <Button text="Filters >" class="slFiltersBtn"/>
+                        <Button text="{chipset>/filterButtonText}" press=".onToggleFilters" class="slFiltersBtn"/>
 
-                </HBox>
+                        <Button
+                            text="Clear all"
+                            press=".onClearFilters"
+                            visible="{chipset>/hasActiveFilters}"
+                            class="slClearBtn"/>
+                    </HBox>
+
+                    <!-- ADVANCED FILTERS -->
+                    <VBox visible="{chipset>/showFilters}" class="slAdvancedFilters">
+
+                        <HBox class="slAdvancedRow">
+
+                            <!-- Product Family -->
+                            <VBox class="slFilterGroup">
+                                <Text text="PRODUCT FAMILY" class="slGroupLabel"/>
+                                <HBox>
+                                    <Button text="All families" press=".onFamilyAll" class="{= ${chipset>/filters/family} === 'ALL' ? 'slFilterChipActive' : 'slFilterChip' }"/>
+                                    <Button text="AI / ML" press=".onFamilyAiMl" class="{= ${chipset>/filters/family} === 'AI / ML' ? 'slFilterChipActive' : 'slFilterChip' }"/>
+                                    <Button text="RF / 5G" press=".onFamilyRf" class="{= ${chipset>/filters/family} === 'RF / 5G' ? 'slFilterChipActive' : 'slFilterChip' }"/>
+                                    <Button text="Automotive" press=".onFamilyAuto" class="{= ${chipset>/filters/family} === 'Automotive' ? 'slFilterChipActive' : 'slFilterChip' }"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Customer -->
+                            <VBox class="slFilterGroup">
+                                <Text text="CUSTOMER" class="slGroupLabel"/>
+                                <HBox>
+                                    <Button text="All customers" press=".onCustomerAll" class="{= ${chipset>/filters/customer} === 'ALL' ? 'slFilterChipPurple' : 'slFilterChip' }"/>
+                                    <Button text="Hyperscaler A" press=".onCustomerHyper" class="{= ${chipset>/filters/customer} === 'Hyperscaler A' ? 'slFilterChipPurple' : 'slFilterChip' }"/>
+                                    <Button text="OEM Tier-1" press=".onCustomerOem" class="{= ${chipset>/filters/customer} === 'OEM Tier-1' ? 'slFilterChipPurple' : 'slFilterChip' }"/>
+                                    <Button text="Automotive OEM" press=".onCustomerAuto" class="{= ${chipset>/filters/customer} === 'Automotive OEM' ? 'slFilterChipPurple' : 'slFilterChip' }"/>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Risk Band -->
+                            <VBox class="slFilterGroup">
+                                <Text text="RISK BAND" class="slGroupLabel"/>
+                                <HBox>
+                                    <Button text="All" press=".onRiskAll" class="{= ${chipset>/filters/riskBand} === 'ALL' ? 'slFilterChipActive' : 'slFilterChip' }"/>
+                                    <Button text="At Risk +" press=".onRiskAtRisk" class="{= ${chipset>/filters/riskBand} === 'AT_RISK' ? 'slFilterChipOrange' : 'slFilterChip' }"/>
+                                    <Button text="Critical only" press=".onRiskCritical" class="{= ${chipset>/filters/riskBand} === 'CRITICAL' ? 'slFilterChipRed' : 'slFilterChip' }"/>
+                                    <Button text="Watch +" press=".onRiskWatch" class="{= ${chipset>/filters/riskBand} === 'WATCH' ? 'slFilterChipOrange' : 'slFilterChip' }"/>
+                                    <Button text="Healthy only" press=".onRiskHealthy" class="{= ${chipset>/filters/riskBand} === 'HEALTHY' ? 'slFilterChipGreen' : 'slFilterChip' }"/>
+                                </HBox>
+                            </VBox>
+
+                        </HBox>
+
+                        <!-- Exposure -->
+                        <VBox class="slFilterGroup">
+                            <Text text="EXPOSURE" class="slGroupLabel"/>
+                            <HBox>
+                                <Button
+                                    text="Single-source BOM lines only"
+                                    press=".onToggleSingleSource"
+                                    class="{= ${chipset>/filters/singleSourceOnly} ? 'slFilterChipOrange' : 'slFilterChip' }"/>
+                            </HBox>
+                        </VBox>
+
+                    </VBox>
+                </VBox>
 
                 <!-- KPI CARDS -->
                 <HBox class="slKpiRow">
@@ -77,7 +138,7 @@
 
                     <VBox class="slKpiCard">
                         <Text text="Showing" class="slKpiLabel"/>
-                        <Text text="{chipset>/kpis/showing}" class="slKpiValue slRiskGray"/>
+                        <Text text="{chipset>/kpis/showing}" class="slKpiValue slRiskBlue"/>
                         <Text text="chipsets" class="slKpiSub"/>
                     </VBox>
 
@@ -88,74 +149,84 @@
                     </VBox>
                 </HBox>
 
-                <!-- HEATMAP CARD -->
-                <VBox class="slHeatmapCard">
+                <!-- HEATMAP TABLE -->
+                <VBox class="slHeatmapCard" visible="{= ${chipset>/displayChipsets}.length > 0 }">
 
                     <!-- TABLE HEADER -->
                     <HBox class="slHeatmapHead">
-                        <Text text="Chipset" class="slHeadChipset"/>
-                        <Text text="FOUNDRY LINES" class="slHeadFoundry"/>
-                        <Text text="SUBSTRATE LINES" class="slHeadSubstrate"/>
-                        <Text text="COMPOSITE" class="slHeadComposite"/>
+                        <VBox class="slHeadChipset">
+                            <Text text="Chipset"/>
+                        </VBox>
+
+                        <VBox class="slHeadFoundry">
+                            <Text text="FOUNDRY LINES"/>
+                        </VBox>
+
+                        <VBox class="slHeadSubstrate">
+                            <Text text="SUBSTRATE LINES"/>
+                        </VBox>
+
+                        <VBox class="slHeadComposite">
+                            <Text text="COMPOSITE"/>
+                        </VBox>
                     </HBox>
 
-                    <!-- ROWS -->
-                    <VBox items="{chipset>/chipsets}">
-                        <HBox class="slHeatmapRow">
+                    <!-- TABLE ROWS -->
+                    <VBox items="{chipset>/displayChipsets}">
+                        <CustomListItem type="Active" press=".onChipsetRowPress" class="slHeatmapListItem">
+                            <HBox class="slHeatmapRow">
 
-                            <!-- CHIPSET -->
-                            <VBox class="slChipsetCol">
-                                <Text text="{chipset>name}" class="slChipName"/>
-                                <Text text="{chipset>description}" class="slChipDesc"/>
+                                <!-- CHIPSET -->
+                                <VBox class="slChipsetCol">
+                                    <Text text="{chipset>name}" class="slChipName"/>
+                                    <Text text="{chipset>description}" class="slChipDesc"/>
 
-                                <HBox alignItems="Center" class="slChipTags">
-                                    <Text text="{chipset>tag}" class="slTag"/>
-                                    <Text
-                                        text="! Single-source"
-                                        visible="{chipset>singleSource}"
-                                        class="slSingleSource"/>
-                                    <Link text="Click to drill in &gt;" class="slDrillLink"/>
-                                </HBox>
-                            </VBox>
+                                    <HBox alignItems="Center" class="slChipTags">
+                                        <Text text="{chipset>family}" class="slTag"/>
+                                        <Text text="! Single-source" visible="{chipset>singleSource}" class="slSingleSource"/>
+                                        <Text text="Click to drill in &gt;" class="slDrillLink"/>
+                                    </HBox>
+                                </VBox>
 
-                            <!-- FOUNDRY -->
-                            <VBox class="slFoundryCol" items="{chipset>foundries}">
-                                <HBox class="slLineCard">
-                                    <VBox class="slScoreCircle">
-                                        <Text text="{chipset>score}" class="slScoreText"/>
-                                    </VBox>
+                                <!-- FOUNDRY -->
+                                <VBox class="slFoundryCol" items="{chipset>foundries}">
+                                    <HBox class="slLineCard">
+                                        <VBox class="slScoreCircle">
+                                            <Text text="{chipset>score}" class="slScoreText"/>
+                                        </VBox>
 
-                                    <VBox>
-                                        <Text text="{chipset>title}" class="slLineTitle"/>
-                                        <Text text="{chipset>supplier}" class="slLineSub"/>
-                                        <Text text="{chipset>meta}" class="slLineMeta"/>
-                                    </VBox>
-                                </HBox>
-                            </VBox>
+                                        <VBox>
+                                            <Text text="{chipset>title}" class="slLineTitle"/>
+                                            <Text text="{chipset>supplier}" class="slLineSub"/>
+                                            <Text text="{chipset>meta}" class="slLineMeta"/>
+                                        </VBox>
+                                    </HBox>
+                                </VBox>
 
-                            <!-- SUBSTRATE -->
-                            <VBox class="slSubstrateCol" items="{chipset>substrates}">
-                                <HBox class="slLineCard">
-                                    <VBox class="slScoreCircle">
-                                        <Text text="{chipset>score}" class="slScoreText"/>
-                                    </VBox>
+                                <!-- SUBSTRATE -->
+                                <VBox class="slSubstrateCol" items="{chipset>substrates}">
+                                    <HBox class="slLineCard">
+                                        <VBox class="slScoreCircle">
+                                            <Text text="{chipset>score}" class="slScoreText"/>
+                                        </VBox>
 
-                                    <VBox>
-                                        <Text text="{chipset>title}" class="slLineTitle"/>
-                                        <Text text="{chipset>supplier}" class="slLineSub"/>
-                                        <Text text="{chipset>meta}" class="slLineMeta"/>
-                                    </VBox>
-                                </HBox>
-                            </VBox>
+                                        <VBox>
+                                            <Text text="{chipset>title}" class="slLineTitle"/>
+                                            <Text text="{chipset>supplier}" class="slLineSub"/>
+                                            <Text text="{chipset>meta}" class="slLineMeta"/>
+                                        </VBox>
+                                    </HBox>
+                                </VBox>
 
-                            <!-- COMPOSITE -->
-                            <VBox class="slCompositeCol">
-                                <Text text="{chipset>compositeScore}" class="slCompositeScore"/>
-                                <Text text="{chipset>riskLabel}" class="slCompositeLabel"/>
-                                <Text text="max(lines)" class="slCompositeSub"/>
-                            </VBox>
+                                <!-- COMPOSITE -->
+                                <VBox class="slCompositeCol">
+                                    <Text text="{chipset>compositeScore}" class="slCompositeScore"/>
+                                    <Text text="{chipset>riskLabel}" class="slCompositeLabel"/>
+                                    <Text text="max(lines)" class="slCompositeSub"/>
+                                </VBox>
 
-                        </HBox>
+                            </HBox>
+                        </CustomListItem>
                     </VBox>
 
                     <!-- LEGEND -->
@@ -182,10 +253,20 @@
 
                         <Text text="Composite = max() across all BOM lines" class="slLegendFormula"/>
                     </HBox>
-
                 </VBox>
 
-                <!-- INSIGHT BANNER -->
+                <!-- NO DATA -->
+                <VBox
+                    visible="{= ${chipset>/displayChipsets}.length === 0 }"
+                    class="slNoDataBox"
+                    alignItems="Center"
+                    justifyContent="Center">
+
+                    <Text text="No chipsets match the current filters" class="slNoDataText"/>
+                    <Button text="Clear filters" press=".onClearFilters" class="slNoDataBtn"/>
+                </VBox>
+
+                <!-- INSIGHT -->
                 <HBox class="slInsightBanner" alignItems="Center">
                     <Text text="i" class="slInsightIcon"/>
                     <Text text="{chipset>/insightText}" class="slInsightText"/>
@@ -193,13 +274,20 @@
 
             </VBox>
 
-            <!-- AI SNAPSHOT CONTENT -->
-            <VBox visible="{= ${chipset>/selectedView} === 'AI' }" class="slAiSnapshotBox" alignItems="Center" justifyContent="Center">
+            <!-- AI SNAPSHOT -->
+            <VBox
+                visible="{= ${chipset>/selectedView} === 'AI' }"
+                class="slAiSnapshotBox"
+                alignItems="Center"
+                justifyContent="Center">
+
                 <Text text="*" class="slAiIcon"/>
                 <Text text="AI Portfolio Snapshot" class="slAiTitle"/>
+
                 <Text
                     text="Claude reads your live risk scores, supplier key figures, OEM stock, and demand signals and generates a plain-English executive summary in seconds."
                     class="slAiDesc"/>
+
                 <Button text="Generate Snapshot" class="slGenerateBtn"/>
             </VBox>
 
