@@ -1,3 +1,7 @@
+/* ===================================================== */
+/* CHIPSET DETAIL PAGE */
+/* ===================================================== */
+
 .cdPage,
 .cdShell {
     background: #f7f9fb !important;
@@ -12,14 +16,25 @@
     box-sizing: border-box;
 }
 
-/* Header */
+
+/* ===================================================== */
+/* PAGE HEADER */
+/* ===================================================== */
 
 .cdHeader {
-    margin-bottom: 1.2rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .cdBackBtn {
     margin-right: 1rem;
+}
+
+.cdBackBtn .sapMBtnInner {
+    background: #ffffff !important;
+    border: 1px solid #d8dde6 !important;
+    border-radius: 0.45rem !important;
+    color: #374151 !important;
 }
 
 .cdTitleBlock {
@@ -39,41 +54,52 @@
 }
 
 .cdRiskBadge {
+    flex-shrink: 0;
+    min-width: 7.5rem;
+    text-align: center;
     background: #fff0db;
     color: #f05a00;
     border-radius: 1rem;
-    padding: 0.35rem 0.8rem;
+    padding: 0.35rem 0.9rem;
     font-weight: 900;
+    white-space: nowrap;
 }
 
-/* Availability */
+
+/* ===================================================== */
+/* AVAILABILITY CARD */
+/* ===================================================== */
 
 .cdAvailabilityCard {
     background: #ffffff;
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     overflow: hidden;
     border: 1px solid #dfe3e8;
+    margin-top: 1.5rem;
+}
+
+.cdAvailabilityDarkSection {
+    background: #15172d;
+    padding: 1rem 1.3rem 1.2rem 1.3rem;
 }
 
 .cdDarkTitle {
-    background: #15172d;
     color: #78f6ff;
     font-weight: 900;
     font-size: 1rem;
-    padding: 1rem 1.3rem 0.4rem 1.3rem;
+    margin-bottom: 1rem;
 }
 
 .cdDarkKpiRow {
-    background: #15172d;
-    padding: 0.8rem 1.3rem 1.2rem 1.3rem;
     gap: 1rem;
+    background: transparent;
 }
 
 .cdDarkKpi {
     background: #292b42;
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
-    min-width: 8rem;
+    min-width: 8.5rem;
 }
 
 .cdDarkKpiLabel {
@@ -110,7 +136,9 @@
     color: #fb923c;
 }
 
-/* Legend */
+/* ===================================================== */
+/* STOCK LEGEND */
+/* ===================================================== */
 
 .cdLegend {
     background: #f3f4f6;
@@ -149,54 +177,51 @@
     background: #dc2626;
 }
 
-/* Portfolio Total */
+
+/* ===================================================== */
+/* PORTFOLIO TOTAL */
+/* ===================================================== */
 
 .cdTotalRow {
     background: #eaf8ff;
     border-bottom: 3px solid #08a6a6;
-    padding: 0.8rem 1.3rem;
+    padding: 0.9rem 1.5rem;
+}
+
+.cdPortfolioKpis {
+    gap: 5rem;
 }
 
 .cdTotalTitle {
+    font-size: 1.1rem;
     font-weight: 900;
     color: #008c94;
+    min-width: 14rem;
 }
 
 .cdTotalBox {
-    min-width: 9rem;
     align-items: center;
+    min-width: 7rem;
 }
 
 .cdTotalLabel {
     color: #6b7280;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
 }
 
 .cdGreenValue,
 .cdOrangeValue,
 .cdRedValue,
 .cdDarkValue {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 900;
 }
 
-.cdGreenValue {
-    color: #008c6b;
-}
 
-.cdOrangeValue {
-    color: #c76b00;
-}
-
-.cdRedValue {
-    color: #dc2626;
-}
-
-.cdDarkValue {
-    color: #111827;
-}
-
-/* Plant Table */
+/* ===================================================== */
+/* PLANT TABLE */
+/* ===================================================== */
 
 .cdPlantTable .sapMListTblHeaderCell {
     background: #f3f4f6 !important;
@@ -210,7 +235,6 @@
 
 .cdPlantRow {
     cursor: pointer;
-    border-left: 4px solid #dc2626;
 }
 
 .cdPlantRow:hover {
@@ -229,11 +253,14 @@
 }
 
 .cdTypeBadge,
-.cdCriticalBadge {
+.cdCriticalBadge,
+.cdWatchBadge,
+.cdHealthyBadge {
     border-radius: 1rem;
     padding: 0.25rem 0.55rem;
     font-size: 0.72rem;
     font-weight: 800;
+    width: fit-content;
 }
 
 .cdTypeBadge {
@@ -244,6 +271,16 @@
 .cdCriticalBadge {
     background: #ffe4e6;
     color: #dc2626;
+}
+
+.cdWatchBadge {
+    background: #fff7ed;
+    color: #f59e0b;
+}
+
+.cdHealthyBadge {
+    background: #dcfce7;
+    color: #15803d;
 }
 
 .cdGreenValueSmall,
@@ -269,270 +306,233 @@
     color: #020617;
 }
 
-.cdWosDot {
-    width: 0.55rem;
-    height: 0.55rem;
-    background: #dc2626;
-    border-radius: 50%;
-    margin-right: 0.4rem;
-}
 
-/* KPI Cards */
+/* ===================================================== */
+/* WOS BAR */
+/* ===================================================== */
 
-.cdKpiRow {
-    gap: 1rem;
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-}
+/* ===================================================== */
+/* SIDE PANEL */
+/* ===================================================== */
 
-.cdKpiCard {
-    flex: 1;
-    background: #ffffff;
-    border: 1px solid #dfe3e8;
-    border-radius: 0.7rem;
-    padding: 1rem 1.2rem;
-}
-
-.cdKpiLabel {
-    color: #6b7280;
-    font-size: 0.78rem;
-}
-
-.cdKpiOrange,
-.cdKpiRed,
-.cdKpiDark {
-    font-size: 1.55rem;
-    font-weight: 900;
-}
-
-.cdKpiOrange {
-    color: #f05a00;
-}
-
-.cdKpiRed {
-    color: #dc2626;
-}
-
-.cdKpiDark {
-    color: #020617;
-}
-
-.cdKpiSub {
-    color: #4b5563;
-    font-size: 0.78rem;
-}
-
-.cdLink {
-    color: #008c94 !important;
-    font-size: 0.78rem;
-}
-
-/* BOM */
-
-.cdBomSection {
-    margin-top: 0.5rem;
-}
-
-.cdSectionTitle {
-    border-left: 5px solid #08a6a6;
-    padding-left: 0.8rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-}
-
-.cdFoundryTitle {
-    color: #008c94;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
-
-.cdSubstrateTitle {
-    color: #6b21a8;
-    font-weight: 900;
-    margin: 1rem 0 0.5rem 0;
-}
-
-.cdBomRow {
-    gap: 1rem;
-}
-
-.cdBomCard {
-    width: 30rem;
-    min-height: 5.2rem;
-    background: #ffffff;
-    border: 1px solid #dfe3e8;
-    border-radius: 0.7rem;
-    padding: 1rem;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-.cdBomCardActive {
-    background: #e5fafa;
-    border: 2px solid #08a6a6;
-}
-
-.cdBomScoreCircle {
-    width: 3.2rem;
-    height: 3.2rem;
-    border: 3px solid #f05a00;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-}
-
-.cdBomScore {
-    color: #f05a00;
-    font-weight: 900;
-}
-
-.cdBomName {
-    font-weight: 900;
-    color: #020617;
-}
-
-.cdBomSub,
-.cdBomMeta,
-.cdBomMat {
-    color: #6b7280;
-    font-size: 0.75rem;
-}
-
-.cdSmallBlueTag,
-.cdSmallPurpleTag {
-    width: fit-content;
-    border-radius: 1rem;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.72rem;
-    font-weight: 900;
-    margin-top: 0.4rem;
-}
-
-.cdSmallBlueTag {
-    background: #dff8fb;
-    color: #008c94;
-}
-
-.cdSmallPurpleTag {
-    background: #f4dffb;
-    color: #7e22ce;
-}
-
-/* Side Panel */
-
-.cdOverlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 2000;
-    align-items: flex-end;
-}
-
-.cdSidePanel {
-    width: 30rem;
-    height: 100vh;
-    background: #ffffff;
-    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.18);
-}
+/* ===================================================== */
+/* SIDE PANEL HEADER */
+/* ===================================================== */
 
 .cdSideHeader {
-    height: 4.5rem;
-    padding: 0 1.4rem;
+    position: relative;
+    height: 5.8rem;
+    padding: 1.2rem 1.5rem;
     border-bottom: 3px solid #dc2626;
     background: #fff1f2;
+    box-sizing: border-box;
+}
+
+.cdSideHeaderText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cdSideTitle {
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    color: #020617 !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.2rem !important;
 }
 
 .cdSideLocation {
-    color: #6b7280;
-    font-weight: 700;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #6b7280 !important;
+    line-height: 1.1rem !important;
+}
+
+/* CLOSE BUTTON */
+
+.cdSideCloseBtn {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+.cdSideCloseBtn .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    min-width: auto !important;
+}
+
+.cdSideCloseBtn .sapMBtnIcon {
+    color: #6b7280 !important;
+    font-size: 1rem !important;
+    font-weight: 900 !important;
+}
+
+/* ===================================================== */
+/* SIDE PANEL CONTAINER */
+/* ===================================================== */
+
+.cdOverlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    z-index: 99999 !important;
+}
+
+.cdSidePanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 31rem;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.18);
+    overflow-y: auto;
+}
+
+/* Risk Summary */
+
+.cdRiskSummaryBox {
+    margin: 1.4rem 1.5rem;
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
 }
 
 .cdCriticalBox {
-    margin: 1.2rem;
     background: #ffe4e6;
-    border-radius: 0.8rem;
-    padding: 1rem;
+}
+
+.cdWatchBox {
+    background: #fff7ed;
+}
+
+.cdHealthyBox {
+    background: #dcfce7;
 }
 
 .cdSideScoreCircle {
-    width: 4.2rem;
-    height: 4.2rem;
-    border: 3px solid #dc2626;
+    width: 4.4rem;
+    height: 4.4rem;
+    min-width: 4.4rem;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
+    box-sizing: border-box;
+}
+
+.cdSideScoreCritical {
+    border: 4px solid #dc2626;
+}
+
+.cdSideScoreWatch {
+    border: 4px solid #f59e0b;
+}
+
+.cdSideScoreHealthy {
+    border: 4px solid #15803d;
 }
 
 .cdSideScore {
-    color: #dc2626;
-    font-weight: 900;
     font-size: 1.1rem;
+    font-weight: 900;
+    color: #dc2626;
 }
 
 .cdSideUnits {
+    font-size: 1.9rem;
+    font-weight: 900;
     color: #dc2626;
-    font-size: 1.7rem;
+    line-height: 2rem;
+}
+
+.cdSideStatus {
+    color: #dc2626;
+    font-size: 0.9rem;
     font-weight: 900;
 }
 
-.cdSideCritical {
-    color: #dc2626;
-    font-weight: 900;
-}
+/* WoS Progress */
 
 .cdSideLabel {
-    margin: 1rem 1.2rem 0.5rem 1.2rem;
+    margin: 1.1rem 1.5rem 0.6rem 1.5rem;
+    font-size: 0.9rem;
     font-weight: 900;
     color: #6b7280;
 }
 
-.cdProgressTrack {
-    margin: 0 1.2rem;
-    height: 0.7rem;
+.cdSideProgressTrack {
+    margin: 0 1.5rem;
+    height: 0.75rem;
     background: #f3f4f6;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cdSideProgressFillCritical,
+.cdSideProgressFillWatch,
+.cdSideProgressFillHealthy {
+    height: 0.75rem;
     border-radius: 1rem;
 }
 
-.cdProgressFill {
-    height: 0.7rem;
+.cdSideProgressFillCritical {
     background: #dc2626;
-    border-radius: 1rem;
+}
+
+.cdSideProgressFillWatch {
+    background: #f59e0b;
+}
+
+.cdSideProgressFillHealthy {
+    background: #15803d;
+}
+
+.cdSideWosRow {
+    margin: 0.45rem 1.5rem 1rem 1.5rem;
 }
 
 .cdSideWos {
-    margin-left: 1.2rem;
     color: #dc2626;
     font-weight: 900;
+    font-size: 0.85rem;
 }
 
 .cdSideTarget {
-    margin-right: 1.2rem;
     color: #6b7280;
+    font-size: 0.85rem;
 }
 
-.cdActionTitle {
-    margin-top: 1.4rem;
-}
+/* Actions */
 
 .cdActionBox {
-    margin: 0.45rem 1.2rem;
+    margin: 0.45rem 1.5rem;
     background: #ffe4e6;
     border-radius: 0.5rem;
-    padding: 0.7rem 0.9rem;
-    color: #111827;
+    padding: 0.75rem 1rem;
+    box-sizing: border-box;
 }
 
+.cdActionText {
+    color: #111827;
+    font-size: 0.85rem;
+}
+
+/* Info */
+
 .cdInfoBox {
-    margin: 1.2rem;
+    margin: 1.4rem 1.5rem;
     background: #dff8fb;
     border-left: 4px solid #08a6a6;
     border-radius: 0.6rem;
     padding: 1rem;
     color: #087f83;
-    line-height: 1.4;
+    font-size: 0.9rem;
+    line-height: 1.45;
 }

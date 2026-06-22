@@ -215,6 +215,8 @@ sap.ui.define([
         },
 
         onChipsetRowPress: function (oEvent) {
+
+            console.log("Row pressed");
             var oContext = oEvent.getSource().getBindingContext("chipset");
 
             if (!oContext) {
@@ -223,9 +225,12 @@ sap.ui.define([
 
             var oChipset = oContext.getObject();
 
-            this.getOwnerComponent().getRouter().navTo("ChipsetDetail", {
-                chipsetId: oChipset.id
-            });
+            sap.ui.core.UIComponent.getRouterFor(this).navTo(
+                "ChipsetDetail",
+                {
+                    chipsetId: oChipset.id
+                }
+            );;
         },
 
         _setFilter: function (sPath, sValue) {
